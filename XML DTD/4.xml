@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nauka [
+<!ELEMENT nauka (rodzaje,rzeczowniki)>
+<!ELEMENT rodzaje (rodzaj,rodzaj,rodzaj)>
+<!ELEMENT rzeczowniki (rzeczownik+)>
+<!ELEMENT rodzaj (#PCDATA)>
+<!ELEMENT rzeczownik (nazwa,synonimy?)>
+<!ELEMENT nazwa (#PCDATA)>
+<!ELEMENT synonimy (#PCDATA)>
+<!ATTLIST rodzaj skrot ID #REQUIRED>
+<!ATTLIST rzeczownik idr IDREF #IMPLIED>
+]>
+<nauka>
+    <rodzaje>
+		<rodzaj skrot="m">meski</rodzaj>
+		<rodzaj skrot="z">zenski</rodzaj>
+		<rodzaj skrot="n">nijaki</rodzaj>
+	</rodzaje>
+	<rzeczowniki>
+		<rzeczownik idr="m">
+			<nazwa>Kwiat</nazwa>
+		</rzeczownik>
+		<rzeczownik idr="z">
+			<nazwa>Kawa</nazwa>
+			<synonimy>Kawusia Neska</synonimy>
+		</rzeczownik>
+		<rzeczownik idr="m">
+			<nazwa>Lekarz</nazwa>
+			<synonimy>Doktor Medyk</synonimy>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Okno</nazwa>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Ziemia</nazwa>
+			<synonimy>Grunt Gleba Rola</synonimy>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Ziarno</nazwa>
+			<synonimy>Nasienie</synonimy>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Zwierze</nazwa>
+			<synonimy>Bestia Stworzenie</synonimy>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Dziupla</nazwa>
+		</rzeczownik>
+		<rzeczownik>
+			<nazwa>Pies</nazwa>
+		</rzeczownik>
+	</rzeczowniki>
+</nauka>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE glowny [
+<!ELEMENT glowny (unikatowy1+, unikatowy2+, pobrany+)>
+<!ELEMENT unikatowy1 (#PCDATA)>
+<!ELEMENT unikatowy2 (#PCDATA)>
+<!ELEMENT pobrany (#PCDATA)>
+<!ATTLIST unikatowy1 idU1 ID #REQUIRED>
+<!ATTLIST unikatowy2 idU2 ID #REQUIRED>
+<!ATTLIST pobrany id IDREF #REQUIRED>
+]>
+<glowny>
+	<unikatowy1 idU1="XD"></unikatowy1>
+	<unikatowy1 idU1="DX"></unikatowy1>
+	<unikatowy2 idU2="LOL"></unikatowy2>
+	<unikatowy2 idU2="OLO"></unikatowy2>
+	<pobrany id="XD"></pobrany>
+	<pobrany id="OLO"></pobrany>
+</glowny>

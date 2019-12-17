@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <Label alignment="CENTER" prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: lightgreen;" text="WYPOŻYCZALNIA ROWERÓW" textAlignment="CENTER">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="800.0" spacing="100.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#wypozyczenie" text="Oddane" />
+            <Button mnemonicParsing="false" onAction="#oddaj" text="Oddaj" />
+            <Button mnemonicParsing="false" onAction="#magazyn" text="Magazyn" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="secB" prefHeight="400.0" prefWidth="800.0">
+         <children>
+            <Label fx:id="info" alignment="CENTER" style="-fx-background-color: lightgreen;" textAlignment="CENTER" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <VBox fx:id="returner" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0" style="-fx-background-color: lightgreen;" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="100.0">
+               <children>
+                  <TextField fx:id="id" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" promptText="id" />
+                  <Button mnemonicParsing="false" onAction="#fin" text="Oddaj" />
+               </children>
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

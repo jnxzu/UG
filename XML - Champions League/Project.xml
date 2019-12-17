@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='ISO-8859-2'?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<!DOCTYPE liga_mistrzow SYSTEM "lm.dtd">
+
+<liga_mistrzow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+	<sezon lata='16/17' data_finalu="2017-06-03">
+		<druzyny>
+			<grupa nr='A'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='B'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='C'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='D'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='E'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='F'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='G'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='H'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+		</druzyny>
+		<stadion_finalowy miasto='Cardiff' kraj='WLS' pojemnosc="74500">Millennium Stadium</stadion_finalowy>
+	</sezon>
+	<sezon lata='17/18' data_finalu="2018-05-26">
+		<druzyny>
+			<grupa nr='A'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='B'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='C'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='D'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='E'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='F'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='G'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+			<grupa nr='H'>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+				<druzyna/>
+			</grupa>
+		</druzyny>
+		<stadion_finalowy miasto='Kijow' kraj='UKR' pojemnosc="70050">NSC Olimpiyskiy Stadium</stadion_finalowy>
+	</sezon>
+	<sezon lata='18/19' data_finalu="2019-06-01">
+		<druzyny>
+			<grupa nr='A'>
+				<druzyna kraj="Hiszpania">
+					<nazwa>Club Atletico de Madrid</nazwa>
+					<stadion>Wanda Metropolitano</stadion>
+				</druzyna>
+				<druzyna kraj="Niemcy">
+					<nazwa>Borussia Dortmund</nazwa>
+					<stadion>Signal Iduna Park</stadion>
+				</druzyna>
+				<druzyna kraj="Francja">
+					<nazwa>AS Monaco FC</nazwa>
+					<stadion>Stade Louis II</stadion>
+				</druzyna>
+				<druzyna kraj="Belgia">
+					<nazwa>Club Brugge</nazwa>
+					<stadion>Jan Breydel Stadium</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='B'>
+				<druzyna kraj="Hiszpania">
+					<nazwa>FC Barcelona</nazwa>
+					<stadion>Camp Nou</stadion>
+				</druzyna>
+				<druzyna kraj="Anglia">
+					<nazwa>Tottenham Hotspur FC</nazwa>
+					<stadion>Wembley Stadium</stadion>
+				</druzyna>
+				<druzyna kraj="Holandia">
+					<nazwa>PSV Eindhoven</nazwa>
+					<stadion>Philips Stadion</stadion>
+				</druzyna>
+				<druzyna kraj="Wlochy">
+					<nazwa>FC Internazionale Milano</nazwa>
+					<stadion>San Siro</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='C'>
+				<druzyna kraj="Francja">
+					<nazwa>Paris Saint-Germain</nazwa>
+					<stadion>Parc des Princes</stadion>
+				</druzyna>
+				<druzyna kraj="Wlochy">
+					<nazwa>SSC Napoli</nazwa>
+					<stadion>Stadio San Paolo</stadion>
+				</druzyna>
+				<druzyna kraj="Anglia">
+					<nazwa>Liverpool FC</nazwa>
+					<stadion>Anfield</stadion>
+				</druzyna>
+				<druzyna kraj="Serbia">
+					<nazwa>FK Crvena zvezda</nazwa>
+					<stadion>Rajko Mitic Stadium</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='D'>
+				<druzyna kraj="Rosja">
+					<nazwa>FC Lokomotiv Moskva</nazwa>
+					<stadion>RZD Arena</stadion>
+				</druzyna>
+				<druzyna kraj="Portugalia">
+					<nazwa>FC Porto</nazwa>
+					<stadion>Estadio do Dragao</stadion>
+				</druzyna>
+				<druzyna kraj="Niemcy">
+					<nazwa>FC Schalke 04</nazwa>
+					<stadion>Veltins-Arena</stadion>
+				</druzyna>
+				<druzyna kraj="Turcja">
+					<nazwa>Galatasaray AS</nazwa>
+					<stadion>Turk Telekom Arena</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='E'>
+				<druzyna kraj="Niemcy">
+					<nazwa>FC Bayern Munchen</nazwa>
+					<stadion>Allianz Arena</stadion>
+				</druzyna>
+				<druzyna kraj="Portugalia">
+					<nazwa>SL Benfica</nazwa>
+					<stadion>Estadio da Luz</stadion>
+				</druzyna>
+				<druzyna kraj="Holandia">
+					<nazwa>AFC Ajax</nazwa>
+					<stadion>Johan Cruyff ArenA</stadion>
+				</druzyna>
+				<druzyna kraj="Grecja">
+					<nazwa>AEK Athens FC</nazwa>
+					<stadion>Olympic Athletic Center of Athens</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='F'>
+				<druzyna kraj="Anglia">
+					<nazwa>Manchester City FC</nazwa>
+					<stadion>Etihad Stadium</stadion>
+				</druzyna>
+				<druzyna kraj="Ukraina">
+					<nazwa>FC Shakhtar Donetsk</nazwa>
+					<stadion>Donbass Arena</stadion>
+				</druzyna>
+				<druzyna kraj="Francja">
+					<nazwa>Olympique Lyonnais</nazwa>
+					<stadion>Parc Olympique Lyonnais</stadion>
+				</druzyna>
+				<druzyna kraj="Niemcy">
+					<nazwa>TSG 1899 Hoffenheim</nazwa>
+					<stadion>Rhein-Neckar-Arena</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='G'>
+				<druzyna kraj="Hiszpania">
+					<nazwa>Real Madrid CF</nazwa>
+					<stadion>Estadio Santiago Bernabeu</stadion>
+				</druzyna>
+				<druzyna kraj="Wlochy">
+					<nazwa>AS Rome</nazwa>
+					<stadion>Stadio Olimpico</stadion>
+				</druzyna>
+				<druzyna kraj="Rosja">
+					<nazwa>PFC CSKA Moskva</nazwa>
+					<stadion>VEB Arena</stadion>
+				</druzyna>
+				<druzyna kraj="Czechy">
+					<nazwa>FC Viktoria Plzen</nazwa>
+					<stadion>Doosan Arena</stadion>
+				</druzyna>
+			</grupa>
+			<grupa nr='H'>
+				<druzyna kraj="Wlochy">
+					<nazwa>Juventus Football Club</nazwa>
+					<stadion>Allianz Stadium</stadion>
+				</druzyna>
+				<druzyna kraj="Anglia">
+					<nazwa>Manchester United FC</nazwa>
+					<stadion>Old Trafford</stadion>
+				</druzyna>
+				<druzyna kraj="Hiszpania">
+					<nazwa>Valencia CF</nazwa>
+					<stadion>Mestalla Stadium</stadion>
+				</druzyna>
+				<druzyna kraj="Szwajcaria">
+					<nazwa>BSC Young Boys</nazwa>
+					<stadion>Stade de Suisse</stadion>
+				</druzyna>
+			</grupa>
+		</druzyny>
+		<stadion_finalowy miasto='Madryt' kraj='ESP' pojemnosc="68000">Wanda Metropolitano</stadion_finalowy>
+	</sezon>
+</liga_mistrzow>

@@ -1,0 +1,131 @@
+﻿h6
+{
+    text-align:center;
+    line-height:0px;
+    margin-bottom:20px;
+    margin-top:20px;
+}
+h1 
+{
+    text-transform:uppercase;
+	text-shadow: 1px 1px gold;
+}
+.center
+{
+    text-align: center;
+}
+.footer
+{
+	text-align: right;
+	text-shadow: gold 0px 0px;
+	font-size: 12px;
+}
+h2
+{
+    font-family:Times New Roman;
+    font-weight:bold;
+    font-style:normal;
+    color:black;
+    font-size:18px;
+    text-transform:capitalize;
+    text-align:left;
+	text-shadow:gold 1px 1px;
+}
+
+
+#general
+{
+    width: 960px;
+    height:850px;
+    margin:10px auto;
+    border: 1px solid black;
+	position: relative;
+	float: middle;
+}
+
+
+#top 
+{
+    width:960px;
+    height:150px;
+    border-bottom:1px solid black;
+    position:relative;
+	background-color:#64B5F6;
+}
+
+#menu
+{
+    position:relative;
+    float:left;
+    width:200px;
+    height:650px;
+    background-color:#64B5F6;
+    border-right:1px solid black;
+	border-bottom:1px solid black;
+}
+
+#content
+{
+    position: relative;
+    float:right;
+    width:750px;
+    height:650px;
+    overflow:auto;
+}
+
+#bot
+{
+	background-color:#64B5F6;
+	width:960px;
+	height:50px;
+	bottom: 0;
+	position: absolute;
+	border-top: 1px solid black;
+}
+
+.podpis
+{
+   font-family:Times New Roman;
+   color:black;
+   font-size:12px;
+}
+
+.podpis2
+{
+   font-family:Times New Roman;
+   color:black;
+   font-size:24px;
+}
+
+.table
+{
+	border: 1px solid black;
+	text-align: center;
+}
+
+img.logo_l
+{
+	width: 155px;
+	height: 130px;
+	float: left;
+}
+
+img.logo_r
+{
+	width: 155px;
+	height:130px;
+	float: right
+}
+
+#floatleft
+{
+	height: 125px;
+	width: 125px;
+	float: right;
+}
+    
+    
+    
+    
+
+    

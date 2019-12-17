@@ -1,0 +1,146 @@
+liga_mistrzow{
+    font-family: "Segoe UI", serif;
+    background: #06113a;
+}
+
+sezon[lata='16/17']{
+    display: none;
+}
+
+sezon[lata='17/18']{
+    display: none;
+}
+
+sezon[lata='18/19']::before{
+    white-space: pre;
+    text-align: center;
+    content: 'Liga Mistrzow Sezon 18/19';
+    font-size: larger;
+    display: block;
+    background: white;
+    width: 300px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+grupa{
+    background: white;
+    text-align: center;
+    width: 250px;
+    margin-left: 70px;
+    margin-right: 50px;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    display: inline-block;
+}
+
+druzyna::after{
+    content: '';
+    display: block;
+}
+
+druzyna{
+    padding: 5px;
+    display: block;
+    border: 1px solid black;
+}
+
+druzyna:hover{
+    color: white;
+    transition: ease 0.3s;
+}
+
+druzyna[kraj='Anglia']:hover{
+    background: #3F1052;
+}
+
+druzyna[kraj='Hiszpania']:hover{
+    background: #003472;
+}
+
+druzyna[kraj='Niemcy']:hover{
+    background: #B12829;
+}
+
+druzyna[kraj='Wlochy']:hover{
+    background: #1D9647;
+}
+
+druzyna[kraj='Francja']:hover{
+    background: #90A5B6;
+}
+
+druzyna[kraj='Belgia']:hover{
+    background: #ED2939;
+}
+
+druzyna[kraj='Holandia']:hover{
+    background: #FF9A00;
+}
+
+druzyna[kraj='Rosja']:hover{
+    background: #e11a22;
+}
+
+druzyna[kraj='Ukraina']:hover{
+    background: #B3B300;
+}
+
+druzyna[kraj='Serbia']:hover{
+    background: #04029C;
+}
+
+druzyna[kraj='Czechy']:hover{
+    background: #022789;
+}
+
+druzyna[kraj='Grecja']:hover{
+    background: #7998eb;
+}
+
+druzyna[kraj='Szwajcaria']:hover{
+    background: #999999;
+}
+
+druzyna[kraj='Portugalia']:hover{
+    background: #822B31;
+}
+
+druzyna[kraj='Turcja']:hover{
+    background: #8b3840;
+}
+
+nazwa::after{
+    content: '';
+    display: block;
+}
+
+nazwa{
+    font-size: medium;
+}
+
+stadion{
+    font-size: smaller;
+}
+
+kraj{
+    display: none;
+}
+
+sezon[lata='18/19']>stadion_finalowy::before{
+    text-align: center;
+    width: 300px;
+    content: 'Stadion Finalowy';
+    display: block;
+    background: white;
+    font-size: larger;
+}
+
+stadion_finalowy{
+    width: 300px;
+    white-space: pre;
+    text-align: center;
+    display: block;
+    background: white;
+    font-size: large;
+}

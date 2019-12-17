@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0"
+            prefWidth="1000.0" style="-fx-background-color: RGB(238,238,238);" xmlns="http://javafx.com/javafx/11.0.1">
+   <top>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <ImageView fitHeight="224.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@grafika/images/t1.jpg" />
+         </ImageView>
+         <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <ImageView fitHeight="68.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@grafika/images/t2.gif" />
+            </ImageView>
+            <HBox alignment="CENTER_LEFT" layoutX="20.0" prefHeight="55.0" prefWidth="966.0" spacing="20.0">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="STRONA GŁÓWNA">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+               <ImageView fitHeight="55.0" fitWidth="4.0" pickOnBounds="true">
+                  <Image url="@grafika/images/msep.jpg" />
+               </ImageView>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="OFERTA">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+               <ImageView fitHeight="55.0" fitWidth="4.0" pickOnBounds="true">
+                  <Image url="@grafika/images/msep.jpg" />
+               </ImageView>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="CENNIK">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+               <ImageView fitHeight="55.0" fitWidth="4.0" pickOnBounds="true">
+                  <Image url="@grafika/images/msep.jpg" />
+               </ImageView>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SKLEP ONLINE">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+               <ImageView fitHeight="55.0" fitWidth="4.0" pickOnBounds="true">
+                  <Image url="@grafika/images/msep.jpg" />
+               </ImageView>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="O NAS">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+               <ImageView fitHeight="55.0" fitWidth="4.0" pickOnBounds="true">
+                  <Image url="@grafika/images/msep.jpg" />
+               </ImageView>
+               <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="KONTAKT">
+                  <font>
+                     <Font name="System Bold" size="12.0" />
+                  </font>
+               </Text>
+            </HBox>
+         </AnchorPane>
+         <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <VBox.margin>
+               <Insets bottom="5.0" left="25.0" right="5.0" top="5.0" />
+            </VBox.margin>
+            <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+               <Image url="@grafika/images/path.jpg" />
+            </ImageView>
+            <Text fill="#919191" strokeType="OUTSIDE" strokeWidth="0.0" text="strona główna" underline="true" />
+            <Text fill="#919191" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;&gt;" />
+            <Text fill="#919191" strokeType="OUTSIDE" strokeWidth="0.0" text="oferta" underline="true" />
+            <Text fill="#919191" strokeType="OUTSIDE" strokeWidth="0.0" text="&gt;&gt;" />
+            <Text fill="#919191" strokeType="OUTSIDE" strokeWidth="0.0" text="cennik" underline="true" />
+         </HBox>
+      </VBox>
+   </top>
+   <bottom>
+      <ImageView fitHeight="140.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <Image url="@grafika/images/d.jpg" />
+      </ImageView>
+   </bottom>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@grafika/images/m1.gif" />
+            </ImageView>
+            <VBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="0.0" style="-fx-background-color: white;">
+               <VBox.margin>
+                  <Insets left="6.0" right="7.0" />
+               </VBox.margin>
+               <AnchorPane prefHeight="43.0" prefWidth="182.0">
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <ImageView fitHeight="30.0" fitWidth="178.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/mng.jpg" />
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="65.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAWIGACJA" />
+               </AnchorPane>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Strona główna" wrappingWidth="98.58126831054688" />
+               </HBox>
+               <ImageView fitHeight="1.0" fitWidth="178.0" pickOnBounds="true">
+                  <Image url="@grafika/images/m2.gif" />
+               </ImageView>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Oferta" wrappingWidth="98.58126831054688" />
+               </HBox>
+               <ImageView fitHeight="1.0" fitWidth="178.0" pickOnBounds="true">
+                  <Image url="@grafika/images/m2.gif" />
+               </ImageView>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Cennik" wrappingWidth="98.58126831054688" />
+               </HBox>
+               <ImageView fitHeight="1.0" fitWidth="178.0" pickOnBounds="true">
+                  <Image url="@grafika/images/m2.gif" />
+               </ImageView>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Sklep online" wrappingWidth="98.58126831054688" />
+               </HBox>
+               <ImageView fitHeight="1.0" fitWidth="178.0" pickOnBounds="true">
+                  <Image url="@grafika/images/m2.gif" />
+               </ImageView>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="O nas" wrappingWidth="98.58126831054688" />
+               </HBox>
+               <ImageView fitHeight="1.0" fitWidth="178.0" pickOnBounds="true">
+                  <Image url="@grafika/images/m2.gif" />
+               </ImageView>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <VBox.margin>
+                     <Insets left="5.0" />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontakt" wrappingWidth="98.58126831054688" />
+               </HBox>
+            </VBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@grafika/images/m3.gif" />
+            </ImageView>
+         </VBox>
+         <VBox prefHeight="200.0" prefWidth="100.0">
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@grafika/images/m1.gif" />
+            </ImageView>
+            <VBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="0.0" style="-fx-background-color: white;">
+               <VBox.margin>
+                  <Insets left="6.0" right="7.0" />
+               </VBox.margin>
+               <AnchorPane prefHeight="43.0" prefWidth="182.0">
+                  <opaqueInsets>
+                     <Insets />
+                  </opaqueInsets>
+                  <ImageView fitHeight="30.0" fitWidth="178.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/mng.jpg" />
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="22.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Szablon zgodny z XHTML" />
+               </AnchorPane>
+               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="3.0">
+                  <VBox.margin>
+                     <Insets />
+                  </VBox.margin>
+                  <ImageView fitHeight="9.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@grafika/images/arrow.gif" />
+                  </ImageView>
+                  <Text fill="#35516c" strokeType="OUTSIDE" strokeWidth="0.0" text="Valid XHTML 1.0 Transitional" wrappingWidth="154.04797744750977" />
+               </HBox>
+            </VBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@grafika/images/m3.gif" />
+            </ImageView>
+         </VBox>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="346.0" prefWidth="779.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <ImageView fitHeight="31.0" fitWidth="775.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@grafika/images/s1.gif" />
+         </ImageView>
+         <VBox prefHeight="190.0" prefWidth="758.0" style="-fx-background-color: white;">
+            <VBox.margin>
+               <Insets left="9.0" right="9.0" />
+            </VBox.margin>
+            <AnchorPane prefHeight="5.0" prefWidth="758.0">
+               <ImageView fitHeight="56.0" fitWidth="725.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/images/ngbg.jpg" />
+               </ImageView>
+               <Text fill="ORANGE" layoutX="83.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nagłówek podstrony" wrappingWidth="177.97738647460938">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Text>
+            </AnchorPane>
+            <Label prefHeight="134.0" prefWidth="744.0" text="Donec hendrerit convallis felis, mollis volutpat enim semper non. Ut lacinia est in odio posuere non ultrices dui adipiscing. Etiam eleifend tortor ac lorem tempor eget porta est imperdiet. Quisque a accumsan elit. Nam ut orci risus. Curabitur id pellentesque mauris. Sed nulla mauris, imperdiet et sodales at, facilisis ac mauris. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper, felis non volutpat pharetra, sem libero tincidunt orci, id pulvinar tortor eros quis orci. In ullamcorper nisl et mauris laoreet egestas. Morbi venenatis venenatis nisi, et facilisis leo pulvinar in. Nullam consectetur sagittis lorem." textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <padding>
+                  <Insets left="17.0" top="5.0" />
+               </padding>
+            </Label>
+         </VBox>
+         <VBox prefHeight="241.0" prefWidth="758.0" style="-fx-background-color: white;">
+            <VBox.margin>
+               <Insets left="9.0" right="9.0" />
+            </VBox.margin>
+            <AnchorPane prefHeight="5.0" prefWidth="758.0">
+               <ImageView fitHeight="56.0" fitWidth="725.0" layoutX="18.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/images/ngbg.jpg" />
+               </ImageView>
+               <Text fill="ORANGE" layoutX="83.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Przykładowe zdjęcia" wrappingWidth="177.97738647460938">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </Text>
+            </AnchorPane>
+            <HBox alignment="CENTER" prefHeight="51.0" prefWidth="736.0" spacing="20.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <ImageView fitHeight="84.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/img1.jpg" />
+               </ImageView>
+               <ImageView fitHeight="84.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/img2.jpg" />
+               </ImageView>
+               <ImageView fitHeight="84.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/img3.jpg" />
+               </ImageView>
+               <ImageView fitHeight="84.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                  <Image url="@grafika/img4.jpg" />
+               </ImageView>
+            </HBox>
+            <Label prefHeight="111.0" prefWidth="744.0" text="Sed condimentum imperdiet est, a malesuada diam laoreet lacinia. Aenean hendrerit ornare nisl quis lacinia. Integer iaculis bibendum neque nec tristique. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse cursus iaculis elit eu suscipit. Donec enim lorem, imperdiet sed lacinia dictum, pulvinar at sem. Curabitur nisi nisl, imperdiet non elementum sed, auctor cursus mauris." textOverrun="WORD_ELLIPSIS" wrapText="true">
+               <padding>
+                  <Insets left="17.0" top="5.0" />
+               </padding>
+            </Label>
+         </VBox>
+         <ImageView fitHeight="31.0" fitWidth="775.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@grafika/images/s3.gif" />
+         </ImageView>
+      </VBox>
+   </center>
+</BorderPane>

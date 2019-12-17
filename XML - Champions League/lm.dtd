@@ -1,0 +1,19 @@
+<!ELEMENT liga_mistrzow (sezon)+>
+<!ELEMENT sezon (druzyny,stadion_finalowy?)>
+<!ATTLIST sezon
+data_finalu CDATA #REQUIRED
+lata CDATA #REQUIRED>
+<!ELEMENT druzyny (grupa)+>
+<!ELEMENT stadion_finalowy (#PCDATA)>
+<!ATTLIST stadion_finalowy
+kraj CDATA #REQUIRED
+miasto CDATA #REQUIRED
+pojemnosc CDATA #IMPLIED>
+<!ELEMENT grupa (druzyna)+>
+<!ATTLIST grupa
+nr ID #REQUIRED>
+<!ELEMENT druzyna (nazwa,stadion)?>
+<!ATTLIST druzyna
+kraj NMTOKENS #IMPLIED>
+<!ELEMENT nazwa (#PCDATA)>
+<!ELEMENT stadion (#PCDATA)>

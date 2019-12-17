@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Age </th>
+                <th> Post Code </th>
+                <th> Salary </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${people.empty}">
+                <td colspan="4"> No People Available </td>
+            </tr>
+            <tr th:each="person : ${people}">
+                <td><span th:text="${person.name}"> Name </span></td>
+                <td><span th:text="${person.age}"> Age </span></td>
+                <td><span th:text="${person.postcode}"> Post Code </span></td>
+                <td><span th:text="${person.salary}"> Salary </span></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+

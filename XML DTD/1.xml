@@ -1,0 +1,43 @@
+a)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny (podrzedny+)>
+<!ELEMENT podrzedny ANY>
+]>
+<glowny>
+	<podrzedny></podrzedny>
+	<podrzedny></podrzedny>
+	<podrzedny></podrzedny>
+	<podrzedny></podrzedny>
+	<podrzedny></podrzedny>
+</glowny>
+
+b)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny (pierwszy,pierwszy,pierwszy?,drugi,drugi,drugi?)>
+<!ELEMENT pierwszy ANY>
+<!ELEMENT drugi ANY>
+]>
+<glowny>
+	<pierwszy/>
+	<pierwszy/>
+	<pierwszy/>
+	<drugi/>
+	<drugi/>
+</glowny>
+
+c)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny ((parzysty,parzysty)+|nieparzysty,(nieparzysty,nieparzysty)*>
+<!ELEMENT parzysty ANY>
+<!ELEMENT nieparzysty ANY>
+]>
+<glowny>
+	<nieparzysty/>
+	<parzysty/>
+</glowny>

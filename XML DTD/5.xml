@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE firma [
+<!ELEMENT firma (nazwa?,dzial*)>
+<!ELEMENT nazwa (#PCDATA)>
+<!ELEMENT dzial (pracownik+)>
+<!ELEMENT pracownik (imie,nazwisko,dataurodzenia,opis?)>
+<!ELEMENT imie (#PCDATA)>
+<!ELEMENT nazwisko (#PCDATA)>
+<!ELEMENT dataurodzenia (#PCDATA)>
+<!ELEMENT opis (#PCDATA)>
+<!ATTLIST pracownik plec (m|k|bd) "bd">
+<!ATTLIST pracownik pesel CDATA #REQUIRED>
+]>
+<firma>
+	<nazwa>xd</nazwa>
+	<dzial>
+		<pracownik plec="m" pesel="1111">
+			<imie>bot</imie>
+			<nazwisko>botowski</nazwisko>
+			<dataurodzenia>kiedystam</dataurodzenia>
+			<opis>botowski bot z botowa</opis>
+		</pracownik>
+	</dzial>
+</firma>

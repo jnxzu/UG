@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Example of valid form</title>
+</head>
+<body>
+    <h1 th:text="#{WelcomeMessage}">Welcome message</h1>
+    <a th:href="@{/create}" id="create">Create person</a>
+</body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      >
+<head>
+    <title>Taco Cloud</title>
+</head>
+
+<body>
+<h1>Welcome to...</h1>
+<img th:src="@{/images/TacoCloud.png}"/>
+
+<a th:href="@{/design}" id="design">Design a taco</a>
+</body>
+</html>-->

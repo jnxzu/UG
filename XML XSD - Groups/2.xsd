@@ -1,0 +1,17 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:group name="adres">
+        <xsd:element name="miejsce"/>
+        <xsd:element name="ulica"/>
+        <xsd:element name="kod"/>
+    </xsd:group>
+    <xsd:group name="osoba">
+        <xsd:element name="imie"/>
+        <xsd:element name="nazwisko"/>
+        <xsd:element name="datauro"/>
+    </xsd:group>
+    <xsd:attributeGroup name="dane">
+
+    </xsd:attributeGroup>
+    
+</xsd:schema>

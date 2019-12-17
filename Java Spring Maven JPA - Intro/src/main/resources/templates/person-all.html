@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring MVC demo app</title>
+</head>
+<body>
+<h1>Welcome to our app</h1>
+
+<h2>We have <span th:text="${persons.size()}"></span> persons in our database</h2>
+<div th:switch="${persons}">
+  <h2 th:case="null">No persons</h2>
+  <div th:case="*">
+    <h2>Persons</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Year of birth</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="person : ${persons}">
+        <td th:text="${person.firstName}"></td>
+        <td th:text="${person.yob}"></td>
+        <td><a th:href="@{/person/edit/{id}(id=${person.id})}">Edit (TODO)</a></td>
+        <td><a th:href="@{/person/delete/{id}(id=${person.id})}">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <p><a href="/person/new">Add new person</a></p>
+</div>
+
+</form>
+</body>

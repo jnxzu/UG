@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring MVC demo app</title>
+</head>
+<body>
+<h1>Welcome to our app</h1>
+
+<h2>We have <span th:text="${books.size()}"></span> books in our database</h2>
+<div th:switch="${books}">
+  <h2 th:case="null">No books</h2>
+  <div th:case="*">
+    <h2>Books</h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>ISBN</th>
+        <th>Author</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="book : ${books}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.isbn}"></td>
+        <td th:text="${book.author.name}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</form>
+</body>

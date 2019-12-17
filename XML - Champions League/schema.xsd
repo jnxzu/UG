@@ -1,0 +1,84 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="liga_mistrzow" type="lminfo"/>
+
+    <xsd:complexType name="lminfo">
+        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="sezon" type="sezoninfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="sezoninfo">
+        <xsd:sequence>
+            <xsd:element name="druzyny" type="druzynyinfo"/>
+            <xsd:element name="stadion_finalowy" type="stadioninfo"/>
+        </xsd:sequence>
+        <xsd:attributeGroup ref="seasonInfo"/>
+    </xsd:complexType>
+
+    <xsd:attributeGroup name="seasonInfo">
+        <xsd:attribute name="lata">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:pattern value="[0-9][0-9]/[0-9][0-9]"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="data_finalu" type="xsd:date"/>
+    </xsd:attributeGroup>
+
+    <xsd:complexType name="druzynyinfo">
+        <xsd:sequence maxOccurs="8" minOccurs="8">
+            <xsd:element name="grupa" type="grupainfo"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="stadioninfo">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute name="miasto" type="xsd:string"/>
+                <xsd:attribute name="kraj">
+                    <xsd:simpleType>
+                        <xsd:restriction base="xsd:string">
+                            <xsd:pattern value="[A-Z][A-Z][A-Z]"/>
+                        </xsd:restriction>
+                    </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="pojemnosc" type="xsd:integer"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="grupainfo">
+        <xsd:sequence minOccurs="4" maxOccurs="4">
+            <xsd:element name="druzyna" type="druzynainfo"/>
+        </xsd:sequence>
+        <xsd:attribute name="nr">
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="A"/>
+                    <xsd:enumeration value="B"/>
+                    <xsd:enumeration value="C"/>
+                    <xsd:enumeration value="D"/>
+                    <xsd:enumeration value="E"/>
+                    <xsd:enumeration value="F"/>
+                    <xsd:enumeration value="G"/>
+                    <xsd:enumeration value="H"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="druzynainfo">
+        <xsd:group ref="teamInfo"/>
+        <xsd:attribute name="kraj" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:group name="teamInfo">
+        <xsd:sequence>
+            <xsd:element name="nazwa" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="stadion" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:group>
+
+</xsd:schema>

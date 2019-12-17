@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<szkola xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="1.xsd">
+    <nauczyciele>
+        <nauczyciel plec="">
+            <imie/>
+            <nazwisko/>
+        </nauczyciel>
+        <nauczyciel plec="">
+            <imie/>
+            <nazwisko/>
+        </nauczyciel>
+    </nauczyciele>
+    <uczniowie>
+        <uczen plec="">
+            <imie/>
+            <nazwisko/>
+        </uczen>
+        <uczen plec="">
+            <imie/>
+            <nazwisko/>
+        </uczen>
+    </uczniowie>
+    <pozostali>
+        <pracownik plec="">
+            <imie/>
+            <nazwisko/>
+        </pracownik>
+        <pracownik plec="">
+            <imie/>
+            <nazwisko/>
+        </pracownik>
+    </pozostali>
+</szkola>

@@ -1,0 +1,47 @@
+a)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny (podrzedny,podrzedny,podrzedny,podrzedny,podrzedny)>
+<!ATTLIST podrzedny wartosc CDATA #REQUIRED>
+<!ELEMENT podrzedny ANY>
+]>
+<glowny>
+	<podrzedny wartosc="xd"/>
+	<podrzedny wartosc="xd"/>
+	<podrzedny wartosc="xd"/>
+	<podrzedny wartosc="xd"/>
+	<podrzedny wartosc="xd"/>
+</glowny>
+
+b)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny (podrzedny,podrzedny,podrzedny,podrzedny,podrzedny)>
+<!ATTLIST podrzedny wartosc (cos) #IMPLIED>
+<!ELEMENT podrzedny ANY>
+]>
+<glowny>
+	<podrzedny/>
+	<podrzedny wartosc="cos"/>
+	<podrzedny wartosc="cos"/>
+	<podrzedny/>
+	<podrzedny/>
+</glowny>
+
+c)
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE glowny
+[
+<!ELEMENT glowny (podrzedny,podrzedny,podrzedny,podrzedny,podrzedny)>
+<!ATTLIST podrzedny wartosc (w1|w2|w3) "w1">
+<!ELEMENT podrzedny ANY>
+]>
+<glowny>
+	<podrzedny/>
+	<podrzedny wartosc="w1"/>
+	<podrzedny wartosc="w3"/>
+	<podrzedny/>
+	<podrzedny/>
+</glowny>
