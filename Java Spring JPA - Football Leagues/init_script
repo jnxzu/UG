@@ -1,0 +1,33 @@
+drop table if exists league CASCADE
+drop table if exists player CASCADE
+drop table if exists team CASCADE
+drop sequence hibernate_sequence if exists
+create sequence hibernate_sequence start with 1 increment by 1
+create table league (
+       id integer not null,
+        end_date date,
+        start_date date,
+        primary key (id)
+    )
+create table player (
+       id integer not null,
+        first_name varchar(255),
+        last_name varchar(255),
+        value_ms float,
+        team_id integer,
+        primary key (id)
+    )
+create table team (
+       id integer not null,
+        name varchar(255),
+        league_id integer,
+        primary key (id)
+    )
+alter table player
+       add constraint FKdvd6ljes11r44igawmpm1mc5s
+       foreign key (team_id)
+       references team
+alter table team
+       add constraint FK9rk8716asfr76xkn99aa3uvp
+       foreign key (league_id)
+       references league
