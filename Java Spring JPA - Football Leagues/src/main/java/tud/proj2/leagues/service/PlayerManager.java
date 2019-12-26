@@ -2,6 +2,8 @@ package tud.proj2.leagues.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import tud.proj2.leagues.domain.Player;
@@ -9,15 +11,16 @@ import tud.proj2.leagues.domain.Player;
 public interface PlayerManager extends JpaRepository<Player, Integer> {
     <S extends Player> S save(S player);
 
-    Player findById(int id);
+    Player findOneByFirstNameAndLastName(String firstName, String lastName);
 
-    Player getOneById(int id);
+    Player getOneByFirstNameAndLastName(String firstName, String lastName);
 
     void delete(Player player);
 
-    List<Player> findByValueGreaterThan(float value);
+    List<Player> listAllInDb();
 
-    List<Player> findByAge(int age);
+    List<Player> findByValueGreaterThan(double val);
 
-    List<Player> findByAgeLessThanAndValueGreaterThan(int age, float value);
+    @Transactional
+    List<Player> deleteByFirstNameAndLastName(String firstName, String lastName);
 }

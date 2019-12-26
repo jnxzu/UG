@@ -6,23 +6,30 @@ create sequence hibernate_sequence start with 1 increment by 1
 create table league (
        id integer not null,
         end_date date,
+        name varchar(255),
         start_date date,
         primary key (id)
     )
 create table player (
        id integer not null,
+        age integer not null,
         first_name varchar(255),
         last_name varchar(255),
-        value_ms float,
+        shirt_num integer not null,
+        value float,
         team_id integer,
         primary key (id)
     )
 create table team (
        id integer not null,
+        city varchar(255),
+        country varchar(255),
         name varchar(255),
         league_id integer,
         primary key (id)
     )
+alter table league
+       add constraint UK_n8qcbpi2pjf8bbenfm9le3v36 unique (name)
 alter table player
        add constraint FKdvd6ljes11r44igawmpm1mc5s
        foreign key (team_id)
