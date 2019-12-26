@@ -3,21 +3,23 @@ package tud.proj2.leagues.service;
 import java.util.Collection;
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import tud.proj2.leagues.domain.Team;
 
+@Transactional(readOnly = true)
 public interface TeamManager extends JpaRepository<Team, Integer> {
+    @Transactional
     <S extends Team> S save(S team);
 
     Team findOneByName(String name);
 
     Team getOneByName(String name);
 
+    @Transactional
     void delete(Team team);
 
     @Modifying
