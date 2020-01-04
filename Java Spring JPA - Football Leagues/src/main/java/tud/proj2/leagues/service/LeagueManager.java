@@ -15,6 +15,7 @@ public interface LeagueManager extends JpaRepository<League, Integer> {
 
     League findOneByName(String name);
 
+    // @Transactional
     League getOneByName(String name);
 
     @Transactional

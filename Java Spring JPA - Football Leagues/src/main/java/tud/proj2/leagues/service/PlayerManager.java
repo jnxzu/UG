@@ -14,6 +14,7 @@ public interface PlayerManager extends JpaRepository<Player, Integer> {
 
     Player findOneByFirstNameAndLastName(String firstName, String lastName);
 
+    // @Transactional
     Player getOneByFirstNameAndLastName(String firstName, String lastName);
 
     @Transactional

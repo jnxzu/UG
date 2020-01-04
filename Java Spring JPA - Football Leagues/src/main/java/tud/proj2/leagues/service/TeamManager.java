@@ -17,6 +17,7 @@ public interface TeamManager extends JpaRepository<Team, Integer> {
 
     Team findOneByName(String name);
 
+    // @Transactional
     Team getOneByName(String name);
 
     @Transactional
