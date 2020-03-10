@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  height: 100%;
+}
+#menu {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-right: 1px solid black;
+  text-align: center;
+}
+.el_menu {
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px 25px;
+}
+.el_menu:hover {
+  background: wheat;
+}
+.el_menu a {
+  white-space: nowrap;
+  text-decoration: none;
+}
+.el_menu a:visited {
+  color: black;
+}
+#naglowek {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: wheat;
+}
+#stopka {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: wheat;
+}

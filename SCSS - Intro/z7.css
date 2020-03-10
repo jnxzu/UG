@@ -1,0 +1,55 @@
+body {
+  height: 100vh;
+}
+
+.box {
+  width: 1rem;
+  height: 1rem;
+  text-align: center;
+}
+
+.box:nth-child(1) {
+  background: red;
+}
+
+.box:nth-child(2) {
+  background: blue;
+}
+
+.box:nth-child(3) {
+  background: green;
+}
+
+#outer {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.box:nth-child(1) {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.box:nth-child(2) {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.box:nth-child(3) {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+/*# sourceMappingURL=z7.css.map */

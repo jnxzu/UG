@@ -1,0 +1,34 @@
+$pixy: 10px;
+
+body {
+  background-image: url(papier.gif);
+}
+div.adres {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: $pixy;
+  margin-bottom: $pixy;
+  width: 12em;
+  background: yellow;
+  border: 2px solid black;
+  padding: 1vmin;
+}
+span.nazwisko {
+  display: block;
+  font-weight: bold;
+  border-bottom: thin solid blue;
+  border-top: thin solid blue;
+  color: blue;
+}
+span.ulica {
+  display: block;
+  color: green;
+}
+span.kod {
+  color: red;
+}
+span.miejscowosc {
+}
+span.telefon {
+  display: block;
+}

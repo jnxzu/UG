@@ -1,0 +1,17 @@
+* {
+  font-size: large;
+}
+
+div {
+  position: relative;
+  left: 2vw;
+}
+
+.A {
+  top: 0;
+}
+
+.B {
+  top: -3.5vh;
+}
+/*# sourceMappingURL=z-6.css.map */

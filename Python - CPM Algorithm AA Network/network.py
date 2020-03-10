@@ -159,3 +159,4 @@ network.calcTimes()
 network.graph()
 for task in network.tasks:
     print(task)
+print("Cmax: " + str(max([t.endTime for t in network.tasks])))

@@ -1,0 +1,24 @@
+#menu {
+  position: fixed;
+  top: 0;
+  display: flex;
+  background: white;
+  width: 100%;
+  justify-content: center;
+}
+#tresc {
+  margin-top: 30px;
+}
+.el_menu {
+  border: 1px solid black;
+  padding: 5px;
+}
+.el_menu:hover {
+  background: wheat;
+}
+.el_menu a {
+  text-decoration: none;
+}
+.el_menu a:visited {
+  color: black;
+}

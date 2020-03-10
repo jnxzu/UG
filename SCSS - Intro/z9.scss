@@ -1,0 +1,32 @@
+#all {
+  display: flex;
+}
+#menu {
+  background: gray;
+  padding: 3vmin;
+  text-align: center;
+}
+#menu p {
+  background: wheat;
+  margin: 1vmin;
+  padding: 1vmin;
+  width: 75%;
+}
+#main {
+  background: wheat;
+  padding: 2vmin;
+}
+
+@media (max-width: 960px) {
+  #menu {
+    padding: 0;
+  }
+}
+@media (max-width: 720px) {
+  #all {
+    flex-direction: column;
+  }
+  #menu {
+    display: flex;
+  }
+}
