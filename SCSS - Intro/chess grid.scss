@@ -1,0 +1,13 @@
+.content {
+  display: grid;
+  grid-template-columns: repeat(5, 150px);
+  grid-template-rows: repeat(5, 150px);
+}
+.field {
+  background-color: wheat;
+  text-align: center;
+  border: 1px solid black;
+}
+.field:nth-child(2n + 1) {
+  background-color: purple;
+}

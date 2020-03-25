@@ -1,0 +1,32 @@
+.body {
+  width: 100%;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "a b d"
+    "a c d";
+  grid-template-columns: 100px 150px 100px;
+  grid-template-rows: 200px 200px;
+}
+.container > * {
+  text-align: center;
+}
+.A {
+  grid-area: a;
+  background-color: red;
+}
+.B {
+  grid-area: b;
+  background-color: wheat;
+}
+.D {
+  grid-area: d;
+  background-color: green;
+}
+.C {
+  grid-area: c;
+  background-color: skyblue;
+}

@@ -1,0 +1,11 @@
+body {
+  background-image: url(papier.gif);
+  padding: 1vmax;
+  text-indent: 1vmax;
+}
+
+html {
+  border: 10px solid black;
+  height: 100%;
+}
+/*# sourceMappingURL=book page.css.map */

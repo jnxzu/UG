@@ -1,0 +1,61 @@
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (250px)[5];
+      grid-template-columns: repeat(5, 250px);
+  grid-auto-rows: 50px;
+  gap: 50px;
+}
+
+.item {
+  text-align: center;
+  line-height: 50px;
+  background-color: wheat;
+  border: 1px solid black;
+}
+
+.item9 {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 2;
+  grid-area: 2 / 4 / span 1 / span 2;
+  background-color: pink;
+}
+
+.item11 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 2 / span 4 / span 1;
+  background-color: slateblue;
+}
+
+.item11 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-area: 3 / 2 / span 4 / span 1;
+  background-color: slateblue;
+}
+
+.item16 {
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: 4 / 3 / span 2 / span 2;
+  background-color: skyblue;
+}
+
+.item29 {
+  -ms-grid-row: 8;
+  -ms-grid-row-span: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: 8 / 1 / span 1 / span 4;
+  background-color: darkgoldenrod;
+}
+/*# sourceMappingURL=grid area.css.map */

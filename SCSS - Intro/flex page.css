@@ -1,0 +1,48 @@
+.body {
+  width: 100%;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container > * {
+  text-align: center;
+  height: 400px;
+}
+
+.A {
+  background-color: red;
+  width: 100px;
+}
+
+.BC {
+  width: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.B {
+  height: 200px;
+  background-color: wheat;
+}
+
+.D {
+  width: 100px;
+  background-color: green;
+}
+
+.C {
+  height: 200px;
+  background-color: skyblue;
+}
+/*# sourceMappingURL=flex page.css.map */

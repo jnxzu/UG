@@ -1,0 +1,24 @@
+#all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#menu {
+  background: gray;
+  padding: 3vmin;
+  text-align: center;
+}
+
+#menu p {
+  background: wheat;
+  margin: 1vmin;
+  padding: 1vmin;
+  width: 75%;
+}
+
+#main {
+  background: wheat;
+  padding: 2vmin;
+}
+/*# sourceMappingURL=text menu 8.css.map */

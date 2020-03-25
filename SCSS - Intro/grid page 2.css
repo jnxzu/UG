@@ -1,0 +1,50 @@
+.body {
+  width: 100%;
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "a b d" "a c d";
+  -ms-grid-columns: 100px 150px 100px;
+      grid-template-columns: 100px 150px 100px;
+  -ms-grid-rows: 200px 200px;
+      grid-template-rows: 200px 200px;
+}
+
+.container > * {
+  text-align: center;
+}
+
+.A {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: a;
+  background-color: red;
+}
+
+.B {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: b;
+  background-color: wheat;
+}
+
+.D {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: d;
+  background-color: green;
+}
+
+.C {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: c;
+  background-color: skyblue;
+}
+/*# sourceMappingURL=grid page 2.css.map */

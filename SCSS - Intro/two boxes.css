@@ -1,0 +1,31 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+div {
+  margin: 0 auto;
+  border: 1px solid black;
+  width: 25%;
+  height: 15%;
+}
+
+.A {
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  background: yellow;
+}
+
+.B {
+  position: absolute;
+  left: 40%;
+  top: 35%;
+  background: blue;
+}
+/*# sourceMappingURL=two boxes.css.map */

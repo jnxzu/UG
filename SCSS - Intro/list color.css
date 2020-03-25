@@ -1,0 +1,15 @@
+li {
+  list-style-type: decimal;
+  color: red;
+}
+
+li li {
+  list-style-type: lower-alpha;
+  color: green;
+}
+
+li li li {
+  list-style-type: disc;
+  color: blue;
+}
+/*# sourceMappingURL=list color.css.map */

@@ -1,0 +1,19 @@
+.content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (150px)[5];
+      grid-template-columns: repeat(5, 150px);
+  -ms-grid-rows: (150px)[5];
+      grid-template-rows: repeat(5, 150px);
+}
+
+.field {
+  background-color: wheat;
+  text-align: center;
+  border: 1px solid black;
+}
+
+.field:nth-child(2n + 1) {
+  background-color: purple;
+}
+/*# sourceMappingURL=chess grid.css.map */

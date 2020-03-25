@@ -1,0 +1,56 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+#menu {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: white;
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+.el_menu {
+  border: 1px solid black;
+  margin: 10px auto;
+  padding: 10px 25px;
+}
+
+.el_menu:hover {
+  background: wheat;
+}
+
+.el_menu a {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.el_menu a:visited {
+  color: black;
+}
+
+#naglowek {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: wheat;
+}
+
+#stopka {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: wheat;
+}
+/*# sourceMappingURL=text menu 5.css.map */

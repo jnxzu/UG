@@ -1,0 +1,70 @@
+html,
+body {
+  min-height: 100%;
+}
+
+#strona {
+  border: 1px solid black;
+  margin: 5% auto;
+  height: 75vh;
+  width: 90vw;
+  overflow: hidden;
+}
+
+#menu {
+  width: 125px;
+  position: relative;
+  float: left;
+  left: 0;
+  bottom: 0;
+  height: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: wheat;
+  border-right: 1px solid black;
+  text-align: center;
+}
+
+#tresc {
+  margin-left: 130px;
+}
+
+.el_menu {
+  border: 1px solid black;
+  margin: 10px;
+  padding: 10px 25px;
+}
+
+.el_menu:hover {
+  background: wheat;
+}
+
+.el_menu a {
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.el_menu a:visited {
+  color: black;
+}
+
+#naglowek {
+  background: wheat;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+#stopka {
+  width: 100%;
+  position: relative;
+  bottom: -10px;
+  border-top: 1px solid black;
+  background: wheat;
+  text-align: right;
+}
+/*# sourceMappingURL=text menu 6.css.map */
