@@ -1,0 +1,64 @@
+body {
+  padding: 5px;
+  margin: 0;
+}
+
+.bg-color {
+  border-radius: 30px;
+  height: 50px;
+  margin: 5px;
+}
+
+.orange {
+  background-color: orange;
+  width: 48%;
+}
+
+@media (max-width: 768px) {
+  .orange {
+    width: 100%;
+  }
+}
+
+.green {
+  background-color: green;
+  width: 100%;
+}
+
+.blue {
+  background-color: blue;
+  width: 32%;
+}
+
+@media (max-width: 1023px) {
+  .blue {
+    width: 100%;
+  }
+}
+
+.grey {
+  background-color: grey;
+  width: 24%;
+}
+
+@media (max-width: 1023px) {
+  .grey {
+    width: 48%;
+  }
+}
+
+@media (max-width: 767px) {
+  .grey {
+    width: 100%;
+  }
+}
+
+.container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+/*# sourceMappingURL=grid responsive.css.map */
