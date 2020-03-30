@@ -6,9 +6,9 @@ const defFun = (fun, types) => {
 const appFun = function() {
   if (arguments[0].hasOwnProperty("typesTable")) {
     for (let i = 1; i < arguments.length; i++) {
-      if (!(typeof arguments[i]).localeCompare(arguments[0].typesTable)) {
+      if ((typeof arguments[i]).localeCompare(arguments[0].typesTable[i - 1])) {
         throw {
-          typerr: "argument " + i + " has wrong type specified"
+          typerr: "argument " + i + " has wrong or no type specified"
         };
       }
     }
@@ -21,7 +21,7 @@ const appFun = function() {
 };
 
 appFun(
-  defFun((a, b, c) => a + b + c, ["number", "number"]),
+  defFun((a, b, c) => a + b + c, ["number", "number", "number"]),
   1,
   1,
   1
