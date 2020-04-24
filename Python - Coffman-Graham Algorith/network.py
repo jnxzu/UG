@@ -85,7 +85,7 @@ class Network:
         fig.show()
 
 
-network = Network(3)
+network = Network(2)
 
 t1 = Task(1)
 t2 = Task(2)
