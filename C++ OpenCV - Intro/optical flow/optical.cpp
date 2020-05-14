@@ -20,21 +20,20 @@ struct comp
 int main()
 {
     VideoCapture in;
-    Mat frameA, frameB, motion, output, err;
+    Mat frameA, frameB, motion, output, err, usedframe;
 
     int corners = 20;
     int quality = 20;
     int distance = 10;
 
-    int choice = 0;
+    int choice = 2;
 
     vector<Point2f> featuresThis, featuresNext;
     vector<uchar> status;
-    deque<vector<Point2f>> path;
 
-    cout << "1. CAM\n2. VID" << endl;
+    // cout << "1. CAM\n2. VID" << endl;
 
-    cin >> choice;
+    // cin >> choice;
 
     switch (choice)
     {
@@ -71,42 +70,42 @@ int main()
             in >> frameA;
             checker = 0;
         }
-        output = frameA;
+        output = frameA.clone();
         cvtColor(frameA, frameA, COLOR_RGB2GRAY);
 
         if (!frameB.empty())
         {
-            absdiff(frameA, frameB, motion);
-            threshold(motion, motion, 50, 150, 0);
             if (checker % 5 == 0)
             {
+                usedframe = frameB.clone();
+                absdiff(frameA, frameB, motion);
+                threshold(motion, motion, 50, 150, 0);
                 if (quality == 0)
                     quality = 1;
                 goodFeaturesToTrack(motion, featuresThis, corners, (double)quality / 100, distance);
             }
             if (!featuresThis.empty())
             {
-                calcOpticalFlowPyrLK(frameB, frameA, featuresThis, featuresNext, status, err);
+                calcOpticalFlowPyrLK(usedframe, frameA, featuresThis, featuresNext, status, err);
                 sort(featuresNext.begin(), featuresNext.end(), obj);
-                path.push_front(featuresNext);
-                if (path.size() == 10)
-                    path.pop_back();
-                for (size_t i = 0; i < path.size() - 1; i++)
-                    for (size_t j = 0; j < path[i].size(); j++)
+                vector<Point2f> good;
+                cvtColor(output, output, COLOR_RGBA2RGB);
+                for (uint i = 0; i < featuresThis.size(); i++)
+                {
+                    if (status[i] == 1)
                     {
-                        if (i == 0)
-                            circle(output, path[i][j], 3, (0, 255, 0), -1);
-                        else
-                            line(output, path[i][j], path[i + 1][j], (255, 255, 255));
+                        good.push_back(featuresNext[i]);
+                        line(output, featuresNext[i], featuresThis[i], (0, 255, 0), 3);
+                        circle(output, featuresNext[i], 3, (255, 0, 0), -1);
                     }
-                featuresThis = featuresNext;
+                }
             }
         }
 
         imshow("test", output);
-        frameB = frameA;
+        frameB = frameA.clone();
         checker++;
-        waitKey(15);
+        waitKey(30);
     }
 
     destroyAllWindows();
