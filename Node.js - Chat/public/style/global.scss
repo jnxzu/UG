@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap");
+
+$bg: #e2e2e2;
+
+body {
+  background: $bg;
+  font-family: "Balsamiq Sans", cursive;
+  margin: 0;
+  overflow: hidden;
+}
+
+input {
+  font-family: "Balsamiq Sans", cursive;
+}
+
+header {
+  height: 5vh;
+  line-height: 5vh;
+  display: flex;
+  padding: 0 1vw;
+  background: black;
+  color: white;
+  span {
+    flex-grow: 1;
+    background: black;
+  }
+  a {
+    background: black;
+    &:link,
+    &:active,
+    &:hover,
+    &:visited {
+      color: white;
+    }
+  }
+}

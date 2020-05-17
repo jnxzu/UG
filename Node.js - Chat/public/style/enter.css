@@ -1,0 +1,14 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#form-container {
+  margin: 40vh auto 0 auto;
+}
+
+#form-container form input {
+  background: white;
+}
+/*# sourceMappingURL=enter.css.map */

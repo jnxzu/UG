@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatrooms</title>
+    <link rel="stylesheet" href="public/style/global.css">
+    <link rel="stylesheet" href="public/style/home.css">
+</head>
+
+<body>
+    <header>
+        <span>Nickname: <%= nickname %></span><a href="/logout">Logout</a>
+    </header>
+    <div id="grid-wrapper">
+        <div id="grid-container">
+            <% rooms.reverse().forEach((room)=>{%>
+            <div class="chatroom-box">
+                <a href="/room?name=room-<%=room.name %>">
+                    <h1><%=room.name%></h1>
+                </a>
+            </div>
+            <%})%>
+            <div id="add-room" class="chatroom-box">
+                <input id="new-room-name" type="text" placeholder="NewRoom">
+                <h1>+</h1>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="public/js/global.js"></script>
+<script src="public/js/home.js"></script>
+
+</html>

@@ -1,0 +1,11 @@
+body {
+  display: flex;
+}
+#form-container {
+  margin: 40vh auto 0 auto;
+  form {
+    input {
+      background: white;
+    }
+  }
+}

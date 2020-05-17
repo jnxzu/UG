@@ -1,0 +1,36 @@
+#grid-container {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  overflow-y: auto;
+  height: 100vh;
+  .chatroom-box {
+    background: white;
+    height: 20vh;
+    margin: 15px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.25),
+      -1px -1px 5px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    a {
+      text-decoration: none;
+      &:link,
+      &:active,
+      &:hover,
+      &:visited {
+        color: black;
+      }
+    }
+    h1 {
+      cursor: pointer;
+    }
+    input {
+      margin: 0 auto;
+      width: 60%;
+    }
+  }
+}

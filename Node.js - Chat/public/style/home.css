@@ -1,0 +1,49 @@
+#grid-container {
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[4];
+      grid-template-rows: repeat(4, 1fr);
+  overflow-y: auto;
+  height: 100vh;
+}
+
+#grid-container .chatroom-box {
+  background: white;
+  height: 20vh;
+  margin: 15px;
+  border-radius: 15px;
+  -webkit-box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.25), -1px -1px 5px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 8px 8px 5px 0px rgba(0, 0, 0, 0.25), -1px -1px 5px 0px rgba(0, 0, 0, 0.25);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+#grid-container .chatroom-box a {
+  text-decoration: none;
+}
+
+#grid-container .chatroom-box a:link, #grid-container .chatroom-box a:active, #grid-container .chatroom-box a:hover, #grid-container .chatroom-box a:visited {
+  color: black;
+}
+
+#grid-container .chatroom-box h1 {
+  cursor: pointer;
+}
+
+#grid-container .chatroom-box input {
+  margin: 0 auto;
+  width: 60%;
+}
+/*# sourceMappingURL=home.css.map */
