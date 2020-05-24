@@ -30,6 +30,16 @@ class Network:
     def __init__(self):
         self.gantt = [[] for x in range(3)]
 
+    def checkDom(self):
+        m1Dom = [t.m1 >= t.m2 for t in self.tasks]
+        m3Dom = [t.m3 >= t.m2 for t in self.tasks]
+        self.isDominated = all(m1Dom) or all(m3Dom)
+        if self.isDominated:
+            if all(m1Dom):
+                self.dom = 1
+            else:
+                self.dom = 3
+
     def getNs(self):
         n1 = [t for t in self.tasks if t.n == 1]
         n2 = [t for t in self.tasks if t.n == 2]
@@ -96,6 +106,8 @@ network.tasks.extend([z1, z2, z3, z4, z5])
 # endregion
 
 network.getNs()
-network.splitTasks()
-network.placeTasks()
-network.drawGantt()
+network.checkDom()
+if network.isDominated:
+    network.splitTasks()
+    network.placeTasks()
+    network.drawGantt()
