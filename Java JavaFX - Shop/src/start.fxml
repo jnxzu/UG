@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <center>
+      <VBox fx:id="core" prefHeight="489.0" prefWidth="1400.0" spacing="25.0" BorderPane.alignment="TOP_CENTER">
+         <padding>
+            <Insets bottom="20.0" left="200.0" right="200.0" top="20.0"/>
+         </padding>
+         <ImageView fx:id="banner" fitHeight="250.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@img/banner.png"/>
+         </ImageView>
+         <HBox fx:id="categories" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="75.0">
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#ShowSztosy"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="@img/sztosy.png"/>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#ShowHity"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="@img/hity.png"/>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#ShowPromo"
+                       pickOnBounds="true" preserveRatio="true">
+               <Image url="@img/promo.png"/>
+            </ImageView>
+         </HBox>
+      </VBox>
+   </center>
+   <top>
+      <HBox prefHeight="171.0" prefWidth="1298.0" spacing="40.0" BorderPane.alignment="BOTTOM_CENTER">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         </padding>
+         <ImageView fitHeight="159.0" fitWidth="125.0" onMouseClicked="#Back" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@img/logo.png"/>
+         </ImageView>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SZTOS SHOP" textAlignment="CENTER"
+               wrappingWidth="446.97607421875">
+            <font>
+               <Font name="Ink Free" size="65.0"/>
+            </font>
+            <HBox.margin>
+               <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+            </HBox.margin>
+         </Text>
+         <ImageView fitHeight="139.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+               <Insets left="150.0"/>
+            </HBox.margin>
+            <Image url="@img/koszyk.png"/>
+         </ImageView>
+         <VBox prefHeight="141.0" prefWidth="212.0">
+            <HBox.margin>
+               <Insets right="15.0"/>
+            </HBox.margin>
+            <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="68.0" prefWidth="207.0" spacing="50.0">
+               <Text fx:id="pln" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00 PLN">
+                  <font>
+                     <Font size="15.0"/>
+                  </font>
+               </Text>
+               <Text fx:id="count" strokeType="OUTSIDE" strokeWidth="0.0" text="0 sztuk">
+                  <font>
+                     <Font size="15.0"/>
+                  </font>
+               </Text>
+            </HBox>
+            <ImageView fitHeight="73.0" fitWidth="200.0" onMouseClicked="#Reset" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@img/oproznij.png"/>
+            </ImageView>
+         </VBox>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="800.0" BorderPane.alignment="CENTER">
+         <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <ImageView fitHeight="120.0" fitWidth="179.0" onMouseClicked="#Mail" pickOnBounds="true"
+                       preserveRatio="true">
+               <Image url="@img/koperta.png"/>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NAPISZ DO NAS" wrappingWidth="134.9765625">
+               <font>
+                  <Font name="Ink Free" size="28.0"/>
+               </font>
+            </Text>
+         </HBox>
+         <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#Faktura" pickOnBounds="true"
+                    preserveRatio="true">
+            <Image url="@img/faktura.png"/>
+         </ImageView>
+      </HBox>
+   </bottom>
+</BorderPane>

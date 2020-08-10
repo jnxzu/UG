@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="225.0" minHeight="-Infinity" minWidth="225.0" prefWidth="225.0" spacing="10.0" style="-fx-border-color: green; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Objects.Login.LoginCellController">
+    <padding>
+        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+    </padding>
+    <Text fx:id="lp" strokeType="OUTSIDE" strokeWidth="0.0" text="LP">
+        <font>
+            <Font name="Arial" size="12.0" />
+        </font>
+    </Text>
+    <Text fx:id="data" strokeType="OUTSIDE" strokeWidth="0.0" text="YYYY-MM-DD">
+        <font>
+            <Font name="Arial" size="12.0" />
+        </font>
+    </Text>
+   <Text fx:id="czas" strokeType="OUTSIDE" strokeWidth="0.0" text="HH:MM">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font>
+   </Text>
+   <Text fx:id="login" strokeType="OUTSIDE" strokeWidth="0.0" text="Login">
+      <font>
+         <Font name="Arial" size="12.0" />
+      </font>
+   </Text>
+</HBox>

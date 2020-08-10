@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminPanel.AdminPanel">
+   <HBox alignment="CENTER" layoutX="500.0" layoutY="150.0"
+         style="-fx-border-color: white; -fx-background-color: green;" AnchorPane.bottomAnchor="150.0"
+         AnchorPane.leftAnchor="325.0" AnchorPane.rightAnchor="325.0" AnchorPane.topAnchor="150.0">
+      <VBox alignment="CENTER" prefWidth="300.0" spacing="15.0" style="-fx-background-color: green;">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         </padding>
+         <ListView fx:id="userlist" style="-fx-border-color: lightgreen; -fx-focus-color: green;"/>
+         <HBox fx:id="box" alignment="CENTER" spacing="2.5">
+            <Button fx:id="addbutton" mnemonicParsing="false"
+                    style="-fx-background-color: green; -fx-border-color: white;" text="Dodaj" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0"/>
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND"/>
+               </cursor>
+            </Button>
+         </HBox>
+      </VBox>
+      <VBox alignment="CENTER" prefWidth="300.0" spacing="15.0" style="-fx-background-color: green;">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         </padding>
+         <Label style="-fx-background-color: white; -fx-background-radius: 15;" text=" LOGOWANIA ">
+            <font>
+               <Font name="Arial" size="12.0"/>
+            </font>
+         </Label>
+         <ListView fx:id="loginlist" style="-fx-border-color: lightgreen; -fx-focus-color: green;"/>
+      </VBox>
+   </HBox>
+</AnchorPane>
