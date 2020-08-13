@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Applications</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var admin = false;
+            $.ajax({
+                url: "/checkadminapps",
+                type: "POST",
+                dataType: "json"
+            }).done(function (adminresp) {
+                admin = adminresp.state;
+                $("#add-app").click(function () {
+                    location.href = "/addapp";
+                })
+                var id = "";
+                var userzy = [];
+                if (!admin) { $("#add-app").hide(); }
+                $(".list-block").click(function () {
+                    id = $(this).attr("id");
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "/loadappdetails",
+                        data: { "id": id },
+                        success: function (response) {
+                            $("#apps-users").addClass("boxshdw");
+                            $("#user-app-details").addClass("boxshdw");
+                            $("#apps-users").empty();
+                            $("#name").html(response.name);
+                            $("#country-or-domain").html(response.domain);
+                            if (admin) { $(".tool-button").show(); }
+                            userzy = response.users;
+                            $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                url: "/loadappusers",
+                                data: { "userzy": userzy },
+                                success: function (resp) {
+                                    $.each(resp, function (i, val) {
+                                        var txt = val.imie + " " + val.nazwisko;
+                                        $("#apps-users").append($('<div />', {
+                                            "id": val.id,
+                                            "class": 'app-user hvr-default no-txt-cursor',
+                                            text: txt
+                                        }));
+                                    })
+                                }
+                            })
+                            $("#add-user").click(function () {
+                                $(".tool-button").hide();
+                                $("#apps-users").empty();
+                                $.ajax({
+                                    type: "POST",
+                                    dataType: "json",
+                                    url: "/loadavailableusers",
+                                    data: { "userzy": userzy },
+                                    success: function (response) {
+                                        $.each(response, function (i, val) {
+                                            var txt = val.imie + " " + val.nazwisko;
+                                            $("#apps-users").append($('<div />', {
+                                                "id": val.id,
+                                                "class": 'app-user hvr-green ptr',
+                                                text: txt
+                                            }));
+                                        })
+                                        $(".app-user.hvr-green.ptr").click(function () {
+                                            $("#apps-users").empty();
+                                            $.ajax({
+                                                type: "GET",
+                                                dataType: "json",
+                                                url: "/adduser",
+                                                data: {
+                                                    "userId": $(this).attr("id"),
+                                                    "appId": id
+                                                },
+                                                statusCode: {
+                                                    200: function () {
+                                                        $("#" + id).click();
+                                                    }
+                                                }
+                                            })
+                                        })
+                                    }
+                                })
+                            })
+                            $("#remove-user").click(function () {
+                                $(".tool-button").hide();
+                                $(".app-user").removeClass("hvr-default no-txt-cursor");
+                                $(".app-user").addClass("hvr-red ptr");
+                                $(".app-user.hvr-red.ptr").click(function () {
+                                    $("#apps-users").empty();
+                                    $.ajax({
+                                        type: "GET",
+                                        dataType: "json",
+                                        url: "/removeuser",
+                                        data: {
+                                            "userId": $(this).attr("id"),
+                                            "appId": id
+                                        },
+                                        statusCode: {
+                                            200: function () {
+                                                $("#" + id).click();
+                                            }
+                                        }
+                                    })
+                                })
+                            })
+                            $("#edit-app").click(function () {
+                                location.href = "/editapp?id=" + id;
+                            })
+                            $("#remove-app").click(function () {
+                                $.ajax({
+                                    type: "GET",
+                                    dataType: "json",
+                                    url: "/removeapp",
+                                    data: { "id": id },
+                                    statusCode: {
+                                        200: function () {
+                                            location.reload(true);
+                                        }
+                                    }
+                                })
+                            })
+                            $("#json").click(function () {
+                                location.href = "/jsonapp?appId=" + id;
+                            })
+                        }
+                    })
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box" class="flex">
+        <nav id="menu">
+            <ul id="menu__list" class="center-text">
+                <li class="menu__group"><a href="/" class="menu__link">Home</a></li>
+                <li class="menu__group"><a href="/users" class="menu__link">Users</a></li>
+                <li class="menu__group"><a href="/stats" class="menu__link">Statistics</a></li>
+            </ul>
+        </nav>
+        <div id="content" class="flex radius-and-padding">
+            <div id="list-container" class="flex radius-and-padding boxshdw">
+                <button id="add-app" class="tool-button hvr-green">Add App</button>
+                <div id="list" class="flex">
+                    <div class="list-block center-text hvr-default" th:each="app: ${apki}" th:id="${app.id}">
+                        <span th:text="${app.name}"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="user-app-details" class="flex radius-and-padding">
+                <div id="info-tools-container">
+                    <div id="user-app-info" class="center-text radius-and-padding">
+                        <span id="name"></span><br>
+                        <span id="country-or-domain"></span>
+                    </div>
+                    <div id="tools">
+                        <button hidden id="add-user" class="tool-button hvr-green">Add User</button>
+                        <button hidden id="remove-user" class="tool-button hvr-red">Remove User</button>
+                        <button hidden id="edit-app" class="tool-button hvr-yellow">Edit Application</button>
+                        <button hidden id="remove-app" class="tool-button hvr-red">Remove Application</button>
+                        <button hidden id="json" class="tool-button hvr-default ptr">JSON</button>
+                    </div>
+                </div>
+                <div id="apps-users">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

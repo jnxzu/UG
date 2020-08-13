@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "/checkadmin",
+                type: "POST",
+                dataType: "json"
+            }).done(function (response) {
+                if (response.state) {
+                    $("#admin-login").hide();
+                    $("#admin-logout").show();
+                }
+            })
+            $("#admin-login").click(function () {
+                location.href = "/adminlogin"
+            })
+            $("#admin-logout").click(function () {
+                $.ajax({
+                    url: "/adminlogout",
+                    type: "POST",
+                }).done(function () { location.reload(); })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <nav id="menu" class="menu_landing">
+        <ul id="menu__list" class="center-text">
+            <li class="menu__group"><a href="/users" class="menu__link">Users</a></li>
+            <li class="menu__group"><a href="/apps" class="menu__link">Applications</a></li>
+            <li class="menu__group"><a href="/stats" class="menu__link">Statistics</a></li>
+        </ul>
+    </nav>
+    <div id="admin-form-box">
+        <button id="admin-login" class="tool-button hvr-default">Admin Login</button>
+        <button hidden id="admin-logout" class="tool-button hvr-default">Admin Logout</button>
+    </div>
+
+</body>
+
+</html>

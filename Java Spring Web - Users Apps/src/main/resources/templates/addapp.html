@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="box">
+        <nav id="menu">
+            <ul id="menu__list" class="center-text">
+                <li class="menu__group"><a href="/" class="menu__link">Home</a></li>
+                <li class="menu__group"><a href="/users" class="menu__link">Users</a></li>
+                <li class="menu__group"><a href="/apps" class="menu__link">Applications</a></li>
+                <li class="menu__group"><a href="/stats" class="menu__link">Statistics</a></li>
+            </ul>
+        </nav>
+        <form class="radius-and-padding boxshdw" method="POST" th:action="@{/addapp}" th:object="${app}">
+            <div id="form-header">
+                <h1>Add Application</h1>
+            </div>
+            <div id="form-content">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" th:field="*{name}"/>
+                    <span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+                </div>
+                <div class="form-group">
+                    <label for="domain">Domain:</label>
+                    <input type="text" th:field="*{domain}"/>
+                    <span class="validationError" th:if="${#fields.hasErrors('domain')}" th:errors="*{domain}"><br/>Domain Error</span>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit</button>
+                    <div th:if="${#fields.hasErrors()}">
+                        <span class="validationError">
+                            Please correct the problems above and resubmit.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

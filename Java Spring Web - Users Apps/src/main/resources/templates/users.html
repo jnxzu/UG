@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Users</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var admin = false;
+            $.ajax({
+                url: "/checkadminusers",
+                type: "POST",
+                dataType: "json"
+            }).done(function (adminresp) {
+                admin = adminresp.state;
+                var id = "";
+                var apki = [];
+                $(".list-block").click(function () {
+                    id = $(this).attr("id");
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "/loaduserdetails",
+                        data: { "id": id },
+                        success: function (response) {
+                            $("#apps-users").addClass("boxshdw");
+                            $("#user-app-details").addClass("boxshdw");
+                            $("#apps-users").empty();
+                            $("#name").html(response.imie + " " + response.nazwisko);
+                            $("#country-or-domain").html(response.kraj);
+                            $("#email").html(response.email);
+                            $("#login").html(response.login);
+                            if (admin) { $(".tool-button").show(); }
+                            apki = response.apps;
+                            $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                url: "/loaduserapps",
+                                data: { "apki": apki },
+                                success: function (resp) {
+                                    $.each(resp, function (i, val) {
+                                        $("#apps-users").append($('<div />', {
+                                            "class": 'app-user hvr-default no-txt-cursor',
+                                            text: val.name
+                                        }));
+                                    })
+                                }
+                            })
+                            $("#edit-user").click(function () {
+                                location.href = "/edituser?id=" + id;
+                            })
+                            $("#json").click(function () {
+                                location.href = "/jsonuser?userId=" + id;
+                            })
+                        }
+                    })
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box" class="flex">
+        <nav id="menu">
+            <ul id="menu__list" class="center-text">
+                <li class="menu__group"><a href="/" class="menu__link">Home</a></li>
+                <li class="menu__group"><a href="/apps" class="menu__link">Applications</a></li>
+                <li class="menu__group"><a href="/stats" class="menu__link">Statistics</a></li>
+            </ul>
+        </nav>
+        <div id="content" class="flex radius-and-padding">
+            <div id="list-container" class="flex radius-and-padding boxshdw">
+                <div id="list" class="flex">
+                    <div class="list-block center-text hvr-default" th:each="user: ${users}" th:id="${user.id}">
+                        <span th:text="${user.imie + ' ' + user.nazwisko}"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="user-app-details" class="flex radius-and-padding">
+                <div id="info-tools-container">
+                    <div id="user-app-info" class="center-text radius-and-padding">
+                        <span id="name"></span><br>
+                        <span id="country-or-domain"></span><br>
+                        <span id="email"></span><br>
+                        <span id="login"></span>
+                    </div>
+                    <div id="tools">
+                        <button hidden id="edit-user" class="tool-button hvr-yellow">Edit User</button>
+                        <button hidden id="json" class="tool-button hvr-default ptr">JSON</button>
+                    </div>
+                </div>
+                <div id="apps-users">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

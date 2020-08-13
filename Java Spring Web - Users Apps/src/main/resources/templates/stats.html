@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Statistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var id = "";
+            $(".list-block").click(function () {
+                id = $(this).attr("id");
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: "/getappinfo",
+                    data: { "id": id },
+                    success: function (response) {
+                        $("#user-app-details").addClass("boxshdw");
+                        var options = {
+                            backgroundColor: "#ecce8e",
+                            animationEnabled: true,
+                            title: {
+                                text: response.nazwa
+                            },
+                            legend:{
+                                fontSize: 12,
+                                horizontalAlign: "right",
+                                verticalAlign: "center"
+                            },
+                            data: [{
+                                type: "pie",
+                                showInLegend: true,
+                                legendText: "{label} - {y}",
+                                indexLabel: "{}",
+                                dataPoints: response.kraje
+                            }]
+                        };
+                        $("#chartContainer").CanvasJSChart(options);
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div id="box" class="flex">
+        <nav id="menu">
+            <ul id="menu__list" class="center-text">
+                <li class="menu__group"><a href="/" class="menu__link">Home</a></li>
+                <li class="menu__group"><a href="/users" class="menu__link">Users</a></li>
+                <li class="menu__group"><a href="/apps" class="menu__link">Applications</a></li>
+            </ul>
+        </nav>
+        <div id="content" class="flex radius-and-padding">
+            <div id="list-container" class="flex radius-and-padding boxshdw">
+                <div id="list" class="flex">
+                    <div class="list-block center-text hvr-default" th:each="app: ${apki}" th:id="${app.id}">
+                        <span th:text="${app.name}"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="user-app-details" class="flex radius-and-padding">
+                <div id="chartContainer" style="height: 100%; width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
