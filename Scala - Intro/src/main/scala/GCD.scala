@@ -1,13 +1,13 @@
-object Main extends App {
-  def prime(a: Int): Boolean = {
-    if (a <= 1) false
-    else if (a == 2) true
-    else !(2 to (a - 1)).exists(x => a % x == 0)
+object GCD extends App {
+  def gcd(a: Int, b: Int): Int = {
+    if (b == 0) a else gcd(b, a % b)
   }
 
-  print("Input your number: ")
+  print("Input first number: ")
   val a = io.StdIn.readInt()
-  val result = prime(a)
   println()
-  println(s"It is $result that your number $a is prime.")
+  print("Input second number: ")
+  val b = io.StdIn.readInt()
+  val result = gcd(a, b)
+  println(s"$a's and $b's greatest common divisor is: $result")
 }
