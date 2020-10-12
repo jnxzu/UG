@@ -2,10 +2,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # a)
+print("a)")
 data = pd.read_csv('miasta.csv')
 print(data)
 
 # b)
+print("\nb)")
 new_row = {'Rok': 2010, 'Gdansk': 460, 'Poznan': 555, 'Szczecin': 405}
 data = data.append(new_row, ignore_index=True)
 print(data)
