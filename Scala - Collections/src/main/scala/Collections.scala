@@ -28,16 +28,20 @@ object Collections extends App {
   // println(freq(Seq('a', 'b', 'a', 'c', 'c', 'a')))
 
   def deStutter[A](seq: Seq[A]): Seq[A] =
-    seq.foldLeft[Seq[A]](Seq()) {
-      case (Seq(), el)               => Seq(el)
-      case (s, el) if (s.last == el) => s
-      case (s, el)                   => s :+ el
-    }
+    seq
+      .foldLeft[Seq[A]](Seq()) {
+        case (Seq(), el)               => Seq(el)
+        case (s, el) if (s.last == el) => s
+        case (s, el)                   => s :+ el
+      }
 
   // println(deStutter(Seq(1, 1, 2, 4, 4, 4, 1, 3)))
 
   def diff[A](seq1: Seq[A], seq2: Seq[A]): Seq[A] =
-    seq1.zip(seq2).filter(tup => tup._1 != tup._2).map(_._1)
+    seq1
+      .zip(seq2)
+      .filter(tup => tup._1 != tup._2)
+      .map(_._1)
 
   // println(diff(Seq(1, 2, 3), Seq(2, 2, 1, 3)))
 }
