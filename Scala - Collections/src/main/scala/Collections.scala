@@ -44,4 +44,45 @@ object Collections extends App {
       .map(_._1)
 
   // println(diff(Seq(1, 2, 3), Seq(2, 2, 1, 3)))
+
+  def indices[A](seq: Seq[A], el: A): Set[Int] = {
+    seq.zipWithIndex.filter(_._1 == el).map(_._2).toSet
+  }
+
+  // println(indices(Seq(1, 2, 1, 1, 5), 1))
+  // println(indices(Seq(1, 2, 1, 1, 5), 7))
+
+  def minNotContained(set: Set[Int]): Int = {
+    (0 to set.max).toSet.diff(set).min
+  }
+
+  // println(minNotContained(Set(-3, 0, 1, 2, 5, 6)))
+
+  def swap[A](seq: Seq[A]): Seq[A] =
+    seq
+      .sliding(2, 2)
+      .toSeq
+      .map {
+        case Seq(a, b) => Seq(b, a)
+        case Seq(a)    => Seq(a)
+      }
+      .toList
+      .flatten
+
+  // println(swap(Seq(1, 2, 3, 4, 5)))
+
+  val strefy = java.util.TimeZone.getAvailableIDs.toSeq
+    .filter(zone => zone.startsWith("Europe/"))
+    .map(zone => zone.stripPrefix("Europe/"))
+    .sortBy(s => (s.length, s))
+
+  // println(strefy)
+
+  def score(code: Seq[Int])(move: Seq[Int]): (Int, Int) = {
+    val black = code.zip(move).filter(pair => pair._1 == pair._2).length
+    val white = code.intersect(move).length - black
+    (black, white)
+  }
+
+  // println(score(Seq(1, 3, 2, 2, 4, 5))(Seq(2, 1, 2, 4, 7, 2)))
 }
