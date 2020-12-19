@@ -46,7 +46,7 @@ object C {
   def apply(real: Double): C = new C(real)
 }
 
-object Testing extends App {
+object ComplexTesting extends App {
   println(C(2, 1) + C(3, 3))
   println(C(4, 0) - C(1, 1))
   println(C(5, 3) * C(2, 2))
