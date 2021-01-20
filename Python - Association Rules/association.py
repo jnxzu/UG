@@ -16,6 +16,8 @@ def main():
     oh_encoded.columns = ['Class_1st', 'Class_2nd', 'Class_3rd', 'Class_Crew', 'Sex_Female', 'Sex_Male',
                           'Age_Adult', 'Age_Child', 'Survived_No', 'Survived_Yes']
 
+    print(oh_encoded)
+
     freq = apriori(oh_encoded, min_support=0.005, use_colnames=True)
     rules = association_rules(freq)
     interesting_rules = rules[rules['consequents'].apply(
