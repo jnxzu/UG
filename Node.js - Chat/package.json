@@ -1,0 +1,22 @@
+{
+  "name": "socket-chat",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "connect-mongo": "^3.2.0",
+    "connect-redis": "^4.0.4",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cookie-sessions": "0.0.2",
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.14",
+    "mongoose-unique-validator": "^2.0.3",
+    "passport": "^0.4.1",
+    "passport-custom": "^1.1.1",
+    "passport-local": "^1.0.0",
+    "passport.socketio": "^3.7.0",
+    "redis": "^3.0.2",
+    "socket.io": "^2.3.0"
+  }
+}

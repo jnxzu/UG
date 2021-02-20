@@ -1,0 +1,58 @@
+English - Treasure Hunt
+C - Image Editor
+C - Mario
+C# - Examples
+
+Assembler/101 Series/ass
+Assembler/Max Series of 1/xd
+C - Heapsort/hipsort
+C - Quicksort/qs
+AWK/mmi
+
+obj
+out
+bin
+target
+node_modules
+project
+.vscode
+
+*gradle*
+*mvnw*
+application.properties
+.classpath
+.factorypath
+.project
+
+*.crt
+*.key
+*.map
+*.gif
+*.pyc
+*.db
+*.jar
+*.out
+*.o
+*.prefs
+*.exe
+*.dll
+*.txt
+*.xml
+*.iml
+*.pdb
+*.csproj
+*.sln
+*.zip
+*.rar
+*.cache
+*.jpeg
+*.jpg
+*.mp4
+*.avi
+*.png
+*.ilk
+*.obj
+*.csv
+*.pdf
+*.nuget.*
+*.md
