@@ -1,0 +1,62 @@
+print(1:10)
+print(10:-10)
+
+print(seq(-10, 10, by = 2))
+print(seq(-10, 10, length = 50))
+
+print(rep(1:3, 5))
+print(rep(1:3, length.out = 17))
+print(rep(1:3, rep(5, 3)))
+
+a <- seq(-10, 10, by = 2)
+print(a)
+print(a[3])
+print(a[c(4, 6, 8)])
+print(a[1:5])
+
+print(a[-3])
+print(a[-c(4, 6, 8)])
+print(a[-(1:5)])
+print(a[a > 0])
+
+b <- 1:10
+print(b)
+b[1:5] <- 0
+print(b)
+b[c(1, 3, 5)] <- -1
+print(b)
+
+x <- seq(0, 6, by = 2)
+y <- rev(x)
+print(x)
+print(y)
+print(2 - x)
+print(x + y)
+print(x * y)
+print(1 / (x + 1) + y^2)
+
+x <- rep(1:3, 2)
+print(x)
+print(max(x))
+print(min(x))
+print(range(x))
+print(length(x))
+print(sort(x))
+print(sum(x))
+print(prod(x))
+print(order(x))
+print(cummax(x))
+print(cummin(x))
+print(diff(x))
+
+a <- c(6, 2, 4, 6, 5, 3, 9, 7, 3, 1, 6)
+b <- c(1, 0, 8, 4, 9, 1, 6, 5, 7, 2, 9)
+print(a)
+print(b)
+print(c(a, b))
+print(pmax(a, b))
+print(pmin(a, b))
+print(rbind(a, b))
+t <- cbind(1:4, 5:8)
+print(t)
+print(as.vector(t))
