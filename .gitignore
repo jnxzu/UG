@@ -56,3 +56,4 @@ application.properties
 *.pdf
 *.nuget.*
 *.md
+*.Rdata

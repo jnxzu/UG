@@ -1,0 +1,10 @@
+opad <- read.csv("MeteoParam_B00300S_2018-01.csv")
+coord233 <- read.csv("coord233_alt.csv")
+
+data_x_510 <- opad$X350150510
+
+# or
+
+st233 <- colnames(opad)
+data_x_510 <- opad[which(st233 == "X350150510")]
+
