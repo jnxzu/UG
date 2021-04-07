@@ -1,0 +1,80 @@
+---
+title: "Analiza Stacji x510"
+author: "Jan Bielówka"
+output: html_document
+---
+
+# 1.Wstępna analiza danych.
+
+## (a) Krótka informacja o strukturze danych.
+
+Najpierw wczytujemy dane i potrzebne biblioteki.
+
+```{r, message=FALSE, warning=FALSE}
+library(moments)
+library(fitdistrplus)
+
+wszystkie_temperatury = read.csv("temperatury.csv")
+coord233 = read.csv("coord233.csv")
+load("coord67.Rdata")
+```
+
+Interesuje nas stacja o kodzie 510.
+
+```{r}
+stacja = coord67[which(coord67$code1 == "X510"), ]
+stacja
+```
+
+Jak widać jest to stacja "Śnieżka" o współrzędnych geograficznych 50.7329/15.7329 na wysokości 1613m n.p.m.
+Potrzebne nam będą wszystkie pomiary z danej stacji.
+
+```{r}
+pelny_kod = paste("X", stacja$code0, sep = "")
+temperatury_stacji = wszystkie_temperatury[, c("datetime", pelny_kod)]
+head(temperatury_stacji)
+```
+
+Uzyskujemy tabelę dwukolumnową.
+Pierwsza kolumna reprezentuje datę oraz godzinę pomiaru temperatury w formacie YYYY-MM-DD hh:mm.
+Druga kolumna zawiera zmierzoną temperaturę.
+Zakres czasowy pomiaru to miesiąc styczeń 2018-ego roku.
+Temperatura jest mierzona co 10 minut.
+
+```{r}
+braki = sum(is.na(temperatury_stacji$X350150510))
+braki/nrow(temperatury_stacji)
+```
+
+Brakuje około 19% danych.
+
+## (b) Podstawowe statystyki.
+
+```{r}
+tylko_temperatury = temperatury_stacji$X350150510
+mean(tylko_temperatury, na.rm=TRUE)
+sd(tylko_temperatury, na.rm=TRUE)
+skewness(tylko_temperatury, na.rm=TRUE)
+max(tylko_temperatury, na.rm=TRUE)
+min(tylko_temperatury, na.rm=TRUE)
+median(tylko_temperatury, na.rm=TRUE)
+```
+
+## (c) Wykresy.
+
+```{r}
+hist(tylko_temperatury)
+plot(tylko_temperatury)
+```
+
+# 2. Poszukiwanie najlepszego rozkładu opisującego dane. Estymacja parametrów rozkładu.
+
+## (a) Analiza punktów 1b i 1c.
+
+## (b) Estymacja parametrów.
+
+# 3. Analiza dobroci dopasowania rozkładu do danych.
+
+## (a) Wykresy diagnostyczne.
+
+## (b) Testy zgodności i kryteria informacyjne.
