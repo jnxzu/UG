@@ -5,11 +5,11 @@ output: pdf_document
 ---
 
 ```{r include=F}
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\10min.Rdata")
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\daily.Rdata")
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\10min.Rdata")
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\daily.Rdata")
 #library(gamlss)
 #fitDist(lato10min$X350150510)
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\gamlssFits.Rdata")
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\gamlssFits.Rdata")
 library(evir)
 ```
 
@@ -61,12 +61,12 @@ Dodatkowo, wszystkie wystąpienia wartości **50** mają miejsce dokładnie o go
 
 # 3. Metoda *maksimów blokowych*
 ```{r include=F}
-data <- lato10min$X350150510[!is.na(lato10min$X350150510)]
+datalato = lato10min$X350150510[!is.na(lato10min$X350150510)]
 b = 6*24*65 # wartość 65 dobrana ręcznie aby uzyskać 11 wartości maksimów
-fit = evir::gev(data, b)
-yearly_max <- fit$data
-parGEV <- fit$par.ests
-fit2 <- ismev::gev.fit(yearly_max)
+fit = evir::gev(datalato, b)
+yearly_max = fit$data
+parGEV = fit$par.ests
+fit2 = ismev::gev.fit(yearly_max)
 ```
 Za pomocą funkcji *gev* z biblioteki *evir* jesteśmy w stanie dopasować rozkład "uogólnionych wartości ekstremalnych" (*generalized extreme value* - **GEV**). 
 Estymujemy parametry rozkładu.
@@ -83,27 +83,63 @@ ismev::gev.diag(fit2)
 ```
 
 ### Kwantyle ($q(0.95)$, $q(0.98)$)
-```{r include=F}
-k20 = 20 * 365 * 24 * 6
-k50 = 50 * 365 * 24 * 6
-q20 = 1 - 1/k20
-q50 = 1 - 1/k50
-```
 ##### Lato
-```{r echo=F, results='markup'}
-quantile(lato10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r include=FALSE}
+x20l = evir::rlevel.gev(fit, k.blocks = 20)
+x50l = evir::rlevel.gev(fit, k.blocks = 50)
+```
+```{r}
+x20l[2]
+x50l[2]
 ```
 ##### Jesien
-```{r echo=F, results='markup'}
-quantile(jesien10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r include=FALSE}
+datajesien = jesien10min$X350150510[!is.na(jesien10min$X350150510)]
+fitjesien = evir::gev(datajesien, b)
+x20j = evir::rlevel.gev(fitjesien, k.blocks = 20)
+x50j = evir::rlevel.gev(fitjesien, k.blocks = 50)
 ```
-##### Zima
-```{r echo=F, results='markup'}
-quantile(zima10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r}
+x20j[2]
+x50j[2]
+```
+```{r include=FALSE}
+##### Zima (nie udało się policzyć)
+datazima = zima10min$X350150510[!is.na(zima10min$X350150510)]
+fitzima = evir::gev(datazima, b)
+x20z = evir::rlevel.gev(fitzima, k.blocks = 20)
+x50z = evir::rlevel.gev(fitzima, k.blocks = 50)
 ```
 ##### Wiosna
-Z poprzedniego punktu wiemy że prawdziwą wartością dla wiosny jest **20.6**.
-
+```{r include=FALSE}
+datawiosna = wiosna10min$X350150510[!is.na(wiosna10min$X350150510)]
+datawiosna = datawiosna[datawiosna<50]
+b = 6*24*60
+fitwiosna = evir::gev(datawiosna, b)
+x20w = evir::rlevel.gev(fit, k.blocks = 20)
+x50w = evir::rlevel.gev(fit, k.blocks = 50)
+```
+```{r}
+x20w[2]
+x50w[2]
+```
 # 4. Metoda *przekroczeń progu*
-
+Za pomocą funkcji *gpd* z biblioteki *ismev* dopasujemy rozkład **GPD**. Ustalamy wartość progu na kwantylu 90% ponieważ sugerowana wartość *u=27* nie występuje w danych.
+```{r, include=F}
+X = datalato
+u = quantile(X, 0.9)
+library(ismev)
+fitGPD = ismev::gpd.fit(X, u)
+```
+Najpierw warto zobaczyć jak prezentują się dane. Dodatkowo na wykresie pokażemy linię na wcześniej ustalonej wartości *u*.
+```{r}
+par(mfrow=c(2,1))
+plot(X)
+abline(h=u,lwd=2,col='red')   
+```
+Same nadwyżki danych prezentują się następująco.
+```{r}
+Y=X[X>u]-u
+plot(Y,type='h')
+```
 # 5. Podsumowanie
