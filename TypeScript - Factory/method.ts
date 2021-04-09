@@ -1,22 +1,3 @@
-enum Product {
-  ArtisticChair,
-  RegularChair,
-  ClassicalChair,
-  IkeaChair,
-  ArtisticTable,
-  RegularTable,
-  ClassicalTable,
-  IkeaTable,
-  ArtisticSofa,
-  RegularSofa,
-  ClassicalSofa,
-  IkeaSofa,
-  ArtisticShelf,
-  RegularShelf,
-  ClassicalShelf,
-  IkeaShelf,
-}
-
 interface IProduct {
   describe(): void;
 }
@@ -115,6 +96,24 @@ abstract class MethodBasedFactory {
   abstract factoryMethod(): IProduct;
 }
 
+class ArtisticChairFactory extends MethodBasedFactory {
+  private static artisticChairFactoryInstance: ArtisticChairFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ArtisticChairFactory {
+    if (!ArtisticChairFactory.artisticChairFactoryInstance)
+      ArtisticChairFactory.artisticChairFactoryInstance = new ArtisticChairFactory();
+    return ArtisticChairFactory.artisticChairFactoryInstance;
+  }
+
+  factoryMethod(): ArtisticChair {
+    return new ArtisticChair();
+  }
+}
+
 class RegularChairFactory extends MethodBasedFactory {
   private static regularChairFactoryInstance: RegularChairFactory;
 
@@ -133,21 +132,75 @@ class RegularChairFactory extends MethodBasedFactory {
   }
 }
 
-class ArtisticShelfFactory extends MethodBasedFactory {
-  private static artisticShelfFactoryInstance: ArtisticShelfFactory;
+class ClassicalChairFactory extends MethodBasedFactory {
+  private static classicalChairFactoryInstance: ClassicalChairFactory;
 
   private constructor() {
     super();
   }
 
-  static getInstance(): ArtisticShelfFactory {
-    if (!ArtisticShelfFactory.artisticShelfFactoryInstance)
-      ArtisticShelfFactory.artisticShelfFactoryInstance = new ArtisticShelfFactory();
-    return ArtisticShelfFactory.artisticShelfFactoryInstance;
+  static getInstance(): ClassicalChairFactory {
+    if (!ClassicalChairFactory.classicalChairFactoryInstance)
+      ClassicalChairFactory.classicalChairFactoryInstance = new ClassicalChairFactory();
+    return ClassicalChairFactory.classicalChairFactoryInstance;
   }
 
-  factoryMethod(): ArtisticShelf {
-    return new ArtisticShelf();
+  factoryMethod(): ClassicalChair {
+    return new ClassicalChair();
+  }
+}
+
+class IkeaChairFactory extends MethodBasedFactory {
+  private static ikeaChairFactoryInstance: IkeaChairFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): IkeaChairFactory {
+    if (!IkeaChairFactory.ikeaChairFactoryInstance)
+      IkeaChairFactory.ikeaChairFactoryInstance = new IkeaChairFactory();
+    return IkeaChairFactory.ikeaChairFactoryInstance;
+  }
+
+  factoryMethod(): IkeaChair {
+    return new IkeaChair();
+  }
+}
+
+class ArtisticTableFactory extends MethodBasedFactory {
+  private static artisticTableFactoryInstance: ArtisticTableFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ArtisticTableFactory {
+    if (!ArtisticTableFactory.artisticTableFactoryInstance)
+      ArtisticTableFactory.artisticTableFactoryInstance = new ArtisticTableFactory();
+    return ArtisticTableFactory.artisticTableFactoryInstance;
+  }
+
+  factoryMethod(): ArtisticTable {
+    return new ArtisticTable();
+  }
+}
+
+class RegularTableFactory extends MethodBasedFactory {
+  private static regularTableFactoryInstance: RegularTableFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): RegularTableFactory {
+    if (!RegularTableFactory.regularTableFactoryInstance)
+      RegularTableFactory.regularTableFactoryInstance = new RegularTableFactory();
+    return RegularTableFactory.regularTableFactoryInstance;
+  }
+
+  factoryMethod(): RegularTable {
+    return new RegularTable();
   }
 }
 
@@ -169,6 +222,78 @@ class ClassicalTableFactory extends MethodBasedFactory {
   }
 }
 
+class IkeaTableFactory extends MethodBasedFactory {
+  private static ikeaTableFactoryInstance: IkeaTableFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): IkeaTableFactory {
+    if (!IkeaTableFactory.ikeaTableFactoryInstance)
+      IkeaTableFactory.ikeaTableFactoryInstance = new IkeaTableFactory();
+    return IkeaTableFactory.ikeaTableFactoryInstance;
+  }
+
+  factoryMethod(): IkeaTable {
+    return new IkeaTable();
+  }
+}
+
+class ArtisticSofaFactory extends MethodBasedFactory {
+  private static artisticSofaFactoryInstance: ArtisticSofaFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ArtisticSofaFactory {
+    if (!ArtisticSofaFactory.artisticSofaFactoryInstance)
+      ArtisticSofaFactory.artisticSofaFactoryInstance = new ArtisticSofaFactory();
+    return ArtisticSofaFactory.artisticSofaFactoryInstance;
+  }
+
+  factoryMethod(): ArtisticSofa {
+    return new ArtisticSofa();
+  }
+}
+
+class RegularSofaFactory extends MethodBasedFactory {
+  private static regularSofaFactoryInstance: RegularSofaFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): RegularSofaFactory {
+    if (!RegularSofaFactory.regularSofaFactoryInstance)
+      RegularSofaFactory.regularSofaFactoryInstance = new RegularSofaFactory();
+    return RegularSofaFactory.regularSofaFactoryInstance;
+  }
+
+  factoryMethod(): RegularSofa {
+    return new RegularSofa();
+  }
+}
+
+class ClassicalSofaFactory extends MethodBasedFactory {
+  private static classicalSofaFactoryInstance: ClassicalSofaFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ClassicalSofaFactory {
+    if (!ClassicalSofaFactory.classicalSofaFactoryInstance)
+      ClassicalSofaFactory.classicalSofaFactoryInstance = new ClassicalSofaFactory();
+    return ClassicalSofaFactory.classicalSofaFactoryInstance;
+  }
+
+  factoryMethod(): ClassicalSofa {
+    return new ClassicalSofa();
+  }
+}
+
 class IkeaSofaFactory extends MethodBasedFactory {
   private static ikeaSofaFactoryInstance: IkeaSofaFactory;
 
@@ -184,6 +309,60 @@ class IkeaSofaFactory extends MethodBasedFactory {
 
   factoryMethod(): IkeaSofa {
     return new IkeaSofa();
+  }
+}
+
+class ArtisticShelfFactory extends MethodBasedFactory {
+  private static artisticShelfFactoryInstance: ArtisticShelfFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ArtisticShelfFactory {
+    if (!ArtisticShelfFactory.artisticShelfFactoryInstance)
+      ArtisticShelfFactory.artisticShelfFactoryInstance = new ArtisticShelfFactory();
+    return ArtisticShelfFactory.artisticShelfFactoryInstance;
+  }
+
+  factoryMethod(): ArtisticShelf {
+    return new ArtisticShelf();
+  }
+}
+
+class RegularShelfFactory extends MethodBasedFactory {
+  private static regularShelfFactoryInstance: RegularShelfFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): RegularShelfFactory {
+    if (!RegularShelfFactory.regularShelfFactoryInstance)
+      RegularShelfFactory.regularShelfFactoryInstance = new RegularShelfFactory();
+    return RegularShelfFactory.regularShelfFactoryInstance;
+  }
+
+  factoryMethod(): RegularShelf {
+    return new RegularShelf();
+  }
+}
+
+class ClassicalShelfFactory extends MethodBasedFactory {
+  private static classicalShelfFactoryInstance: ClassicalShelfFactory;
+
+  private constructor() {
+    super();
+  }
+
+  static getInstance(): ClassicalShelfFactory {
+    if (!ClassicalShelfFactory.classicalShelfFactoryInstance)
+      ClassicalShelfFactory.classicalShelfFactoryInstance = new ClassicalShelfFactory();
+    return ClassicalShelfFactory.classicalShelfFactoryInstance;
+  }
+
+  factoryMethod(): ClassicalShelf {
+    return new ClassicalShelf();
   }
 }
 
@@ -206,11 +385,5 @@ class IkeaShelfFactory extends MethodBasedFactory {
 }
 
 function client(factory: MethodBasedFactory) {
-  factory.factoryMethod().describe();
+  return factory.factoryMethod();
 }
-
-client(RegularChairFactory.getInstance());
-client(ArtisticShelfFactory.getInstance());
-client(ClassicalTableFactory.getInstance());
-client(IkeaSofaFactory.getInstance());
-client(IkeaShelfFactory.getInstance());

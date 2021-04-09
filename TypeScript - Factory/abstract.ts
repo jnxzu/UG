@@ -1,22 +1,3 @@
-enum Product {
-  ArtisticChair,
-  RegularChair,
-  ClassicalChair,
-  IkeaChair,
-  ArtisticTable,
-  RegularTable,
-  ClassicalTable,
-  IkeaTable,
-  ArtisticSofa,
-  RegularSofa,
-  ClassicalSofa,
-  IkeaSofa,
-  ArtisticShelf,
-  RegularShelf,
-  ClassicalShelf,
-  IkeaShelf,
-}
-
 // CHAIRS
 interface IChair {
   sit(): void;
@@ -239,13 +220,10 @@ class IkeaFurnitureFactory extends AbstractFactory {
 }
 
 function client(factory: AbstractFactory) {
-  factory.produceChair().sit();
-  factory.produceTable().dinner();
-  factory.produceSofa().nap();
-  factory.produceShelf().flowers();
+  return [
+    factory.produceChair(),
+    factory.produceTable(),
+    factory.produceSofa(),
+    factory.produceShelf(),
+  ];
 }
-
-client(ArtisticFurnitureFactory.getInstance());
-client(RegularFurnitureFactory.getInstance());
-client(ClassicalFurnitureFactory.getInstance());
-client(IkeaFurnitureFactory.getInstance());
