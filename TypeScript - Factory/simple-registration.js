@@ -1,4 +1,5 @@
 "use strict";
+const { performance } = require("perf_hooks");
 exports.__esModule = true;
 var uuid_1 = require("uuid");
 var Product;
@@ -238,15 +239,47 @@ var SimpleFactory = /** @class */ (function () {
 })();
 var factory = SimpleFactory.getInstance();
 
-const initialMemoryUsage = process.memoryUsage().heapUsed;
+console.log("Regular Chair:");
 factory.produce(Product.RegularChair).describe();
-factory.produce(Product.ArtisticShelf).describe();
+console.log("Classical Table:");
 factory.produce(Product.ClassicalTable).describe();
+console.log("Ikea Sofa:");
 factory.produce(Product.IkeaSofa).describe();
-factory.produce(Product.IkeaShelf).describe();
-const newMemoryUsage = process.memoryUsage().heapUsed;
-const diff = newMemoryUsage - initialMemoryUsage;
-console.log(diff / 1000, "kb");
-console.log(diff / 1000 / 5, "kb per product");
 
 console.log(SimpleFactory.registry);
+
+const timeStart = performance.now();
+const initialMemoryUsage = process.memoryUsage().heapUsed;
+const products = [];
+
+for (let index = 0; index < 1000000; index++) {
+  products.push([
+    factory.produce(Product.ArtisticChair),
+    factory.produce(Product.RegularChair),
+    factory.produce(Product.ClassicalChair),
+    factory.produce(Product.IkeaChair),
+
+    factory.produce(Product.ArtisticTable),
+    factory.produce(Product.RegularTable),
+    factory.produce(Product.ClassicalTable),
+    factory.produce(Product.IkeaTable),
+
+    factory.produce(Product.ArtisticSofa),
+    factory.produce(Product.RegularSofa),
+    factory.produce(Product.ClassicalSofa),
+    factory.produce(Product.IkeaSofa),
+
+    factory.produce(Product.ArtisticShelf),
+    factory.produce(Product.RegularShelf),
+    factory.produce(Product.ClassicalShelf),
+    factory.produce(Product.IkeaShelf),
+  ]);
+}
+
+const timeEnd = performance.now();
+const newMemoryUsage = process.memoryUsage().heapUsed;
+const diff = newMemoryUsage - initialMemoryUsage;
+
+console.log(`\nTotal allocated space: ${diff / 1000000}mb.`);
+console.log(`On average ${Math.round(diff / 16000000)} bytes per product`);
+console.log(`Execution took: ${timeEnd - timeStart} ms.`);

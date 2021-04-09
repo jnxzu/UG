@@ -263,13 +263,3 @@ class SimpleFactory {
     }
   }
 }
-
-const factory = SimpleFactory.getInstance();
-
-factory.produce(Product.RegularChair).describe();
-factory.produce(Product.ArtisticShelf).describe();
-factory.produce(Product.ClassicalTable).describe();
-factory.produce(Product.IkeaSofa).describe();
-factory.produce(Product.IkeaShelf).describe();
-
-console.log(SimpleFactory.registry);
