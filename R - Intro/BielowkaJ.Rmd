@@ -5,11 +5,13 @@ output: pdf_document
 ---
 
 ```{r include=F}
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\10min.Rdata")
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\daily.Rdata")
+knitr::opts_chunk$set(echo=FALSE)
+knitr::opts_chunk$set(comment = NA)
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\10min.Rdata")
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\daily.Rdata")
 #library(gamlss)
 #fitDist(lato10min$X350150510)
-load("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro 2\\gamlssFits.Rdata")
+load("C:\\Users\\xsero\\Desktop\\Projekty\\Boring UG\\R - Intro 2\\gamlssFits.Rdata")
 library(evir)
 ```
 
@@ -21,89 +23,194 @@ Interesuje nas stacja o kodzie **510**. Stacja "*Śnieżka*" o współrzędnych
 geograficznych 50.7329/15.7329 na wysokości 1613m n.p.m. znajduje się
 na granicy Polsko-Czeskiej w województwie Dolnośląskim.
 
+![image](sniezka.png)
+\newpage
+
 # 2. Biblioteka *gamlss*
 
 Wykorzystujemy funkcje *fitDist* z biblioteki *gamlss*. Najlepiej dopasowanym rozkładem jest rozkład:
-```{r echo=F, results='markup'}
+```{r}
 names(fit_distributions$fits)[which.max(fit_distributions$fits)]
 ```
 Rozkład *GU* to rozkład **Gumbela**, szczególny przypadek rozkładu **Fishera-Tippetta** - popularnego rozkładu służącego do wyznaczania ekstremalnych wartości zmiennych losowych. Większość losowych zjawisk naturalnych (takich jak prędkość wiatru czy, tak jak w tym przypadku, temperatura) daje się dobrze opisywać tym rozkładem. Rozkład Gumbela jest rozkładem Fishera-Tippetta o wartościach $\lambda = 0, \beta = 1$, dystrybuancie $F(x)=e^{{-e^{{(-x)}}}}$ i funkcji gęstości $f(x)=e^{{-(x+e^{{-x}})}}$. 
 
 
 ### Kwantyle ($x_{20}$, $x_{50}$)
-```{r include=F}
+```{r}
 k20 = 20 * 365 * 24 * 6
 k50 = 50 * 365 * 24 * 6
 q20 = 1 - 1/k20
 q50 = 1 - 1/k50
 ```
 ##### Lato
-```{r echo=F, results='markup'}
+```{r}
 quantile(lato10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
 ```
 ##### Jesien
-```{r echo=F, results='markup'}
+```{r}
 quantile(jesien10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
 ```
 ##### Zima
-```{r echo=F, results='markup'}
+```{r}
 quantile(zima10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
 ```
 ##### Wiosna
-```{r echo=F, results='markup'}
+```{r}
 quantile(wiosna10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
 ```
 Jak widać ekstremalne wartości wiosenne najprawdopodobniej są błędem pomiaru. Spójrzmy na najwyższe 10 wartości.
-```{r echo=F, results='markup'}
+```{r}
 tail(sort(wiosna10min$X350150510), 10)
 ```
-Dodatkowo, wszystkie wystąpienia wartości **50** mają miejsce dokładnie o godzinie **6:00**. Bardzo możliwe że w tych trzech przypadkach był to błąd/restart systemu. Dlatego prawdziwszą wartością $x_{20}$ i $x_{50}$ będzie **20.6**.
+Dodatkowo, wszystkie wystąpienia wartości **50** mają miejsce dokładnie o godzinie **6:00**. To sugeruje że w tych trzech przypadkach pomiar był błędem/restartem systemu. Dlatego prawdziwszą wartością $x_{20}$ i $x_{50}$ będzie **20.6**.
+\newpage
 
 # 3. Metoda *maksimów blokowych*
-```{r include=F}
-data <- lato10min$X350150510[!is.na(lato10min$X350150510)]
+```{r, include=F}
+datalato = lato10min$X350150510[!is.na(lato10min$X350150510)]
 b = 6*24*65 # wartość 65 dobrana ręcznie aby uzyskać 11 wartości maksimów
-fit = evir::gev(data, b)
-yearly_max <- fit$data
-parGEV <- fit$par.ests
-fit2 <- ismev::gev.fit(yearly_max)
+fit = evir::gev(datalato, b)
+yearly_max = fit$data
+parGEV = fit$par.ests
+fit2 = ismev::gev.fit(yearly_max)
 ```
 Za pomocą funkcji *gev* z biblioteki *evir* jesteśmy w stanie dopasować rozkład "uogólnionych wartości ekstremalnych" (*generalized extreme value* - **GEV**). 
 Estymujemy parametry rozkładu.
-```{r echo=F, results='markup'}
+```{r}
 parGEV
 ```
 Następnie, w oparciu o roczne maksima...
-```{r echo=F, results='markup'}
+```{r}
 yearly_max
 ```
 ...możemy wygenerować wykresy diagnostyczne informujące nas o dobroci dopasowania.
-```{r}
+```{r, fig.align='left', fig.height=4}
 ismev::gev.diag(fit2)
 ```
 
 ### Kwantyle ($q(0.95)$, $q(0.98)$)
-```{r include=F}
-k20 = 20 * 365 * 24 * 6
-k50 = 50 * 365 * 24 * 6
-q20 = 1 - 1/k20
-q50 = 1 - 1/k50
-```
 ##### Lato
-```{r echo=F, results='markup'}
-quantile(lato10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r, include=F}
+x20l = evir::rlevel.gev(fit, k.blocks = 20)
+x50l = evir::rlevel.gev(fit, k.blocks = 50)
+```
+```{r}
+x20l[2]
+x50l[2]
 ```
 ##### Jesien
-```{r echo=F, results='markup'}
-quantile(jesien10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r, include=F}
+datajesien = jesien10min$X350150510[!is.na(jesien10min$X350150510)]
+fitjesien = evir::gev(datajesien, b)
+x20j = evir::rlevel.gev(fitjesien, k.blocks = 20)
+x50j = evir::rlevel.gev(fitjesien, k.blocks = 50)
 ```
-##### Zima
-```{r echo=F, results='markup'}
-quantile(zima10min$X350150510, probs = c(q20, q50), names = FALSE, na.rm = TRUE)
+```{r}
+x20j[2]
+x50j[2]
+```
+```{r}
+##### Zima (nie udało się policzyć)
+datazima = zima10min$X350150510[!is.na(zima10min$X350150510)]
+#fitzima = evir::gev(datazima, b)
+#x20z = evir::rlevel.gev(fitzima, k.blocks = 20)
+#x50z = evir::rlevel.gev(fitzima, k.blocks = 50)
 ```
 ##### Wiosna
-Z poprzedniego punktu wiemy że prawdziwą wartością dla wiosny jest **20.6**.
-
+```{r, include=F}
+datawiosna = wiosna10min$X350150510[!is.na(wiosna10min$X350150510)]
+datawiosna = datawiosna[datawiosna<50]
+b = 6*24*60
+fitwiosna = evir::gev(datawiosna, b)
+x20w = evir::rlevel.gev(fitwiosna, k.blocks = 20)
+x50w = evir::rlevel.gev(fitwiosna, k.blocks = 50)
+```
+```{r}
+x20w[2]
+x50w[2]
+```
 # 4. Metoda *przekroczeń progu*
+Za pomocą funkcji *gpd* z biblioteki *ismev* dopasujemy rozkład **GPD**. Ustalamy wartość progu na kwantylu 95% ponieważ sugerowana wartość *u=27* nie występuje w danych.
+```{r, include=F}
+X = datalato
+u = quantile(X, 0.95)
+library(ismev)
+fitGPD = ismev::gpd.fit(X, u)
+param_xi = fitGPD$mle[[2]]
+param_beta = fitGPD$mle[[1]]
+```
+Najpierw warto zobaczyć jak prezentują się dane. Dodatkowo na wykresie pokażemy linię na wcześniej ustalonej wartości *u* równej `u`.
+```{r, include=F}
+ii = cut(X, breaks = seq(min(X), max(X), len = 100), include.lowest = TRUE)
+colors = colorRampPalette(c("blue", "yellow", "red"))(99)[ii]
+par(mfrow=c(2,1))
+plot(X, xaxt='n', xlab='', ylab='Temperatura', col=colors, pch=20)
+abline(h=u,lwd=2,col='red')
+```
+![image](colorplot.png)
+Same nadwyżki nad próg prezentują się następująco.
 
-# 5. Podsumowanie
+![image](nadwyzkaplot.png)
+\newpage
+```{r, include=F}
+Y=X[X>u]-u
+plot(Y,type='h',xlab='',xaxt='n',ylab='Nadwyżka')
+```
+Wyestymowane wcześniej parametry rozkładu **GPD** to $\xi=$$`r param_xi`$ oraz $\beta=$$`r param_beta`$.
+
+Możemy też zobaczyć dobroć dopasowania na wykresach.
+```{r, fig.height=4, fig.align='left'}
+ismev::gpd.diag(fitGPD)
+```
+### Kwantyle ($x_{20}$, $x_{50}$)
+##### Lato
+```{r}
+Nu=length(Y)
+N=length(X)
+x20=u+((20*Nu/N)^param_xi-1)*param_beta/param_xi
+x50=u+((50*Nu/N)^param_xi-1)*param_beta/param_xi
+
+unname(x20); unname(x50)
+```
+##### Jesień
+```{r, include=F}
+X = datajesien
+u = quantile(X, 0.95)
+Y=X[X>u]-u
+fitGPD = ismev::gpd.fit(X, u)
+param_xi = fitGPD$mle[[2]]
+param_beta = fitGPD$mle[[1]]
+x20=u+((20*Nu/N)^param_xi-1)*param_beta/param_xi
+x50=u+((50*Nu/N)^param_xi-1)*param_beta/param_xi
+```
+```{r}
+unname(x20); unname(x50)
+```
+##### Zima
+```{r, include=F}
+X = datazima
+u = quantile(X, 0.95)
+Y=X[X>u]-u
+fitGPD = ismev::gpd.fit(X, u)
+param_xi = fitGPD$mle[[2]]
+param_beta = fitGPD$mle[[1]]
+x20=u+((20*Nu/N)^param_xi-1)*param_beta/param_xi
+x50=u+((50*Nu/N)^param_xi-1)*param_beta/param_xi
+```
+```{r}
+unname(x20); unname(x50)
+```
+##### Wiosna
+```{r, include=F}
+X = datawiosna
+u = quantile(X, 0.95)
+Y=X[X>u]-u
+fitGPD = ismev::gpd.fit(X, u)
+param_xi = fitGPD$mle[[2]]
+param_beta = fitGPD$mle[[1]]
+x20=u+((20*Nu/N)^param_xi-1)*param_beta/param_xi
+x50=u+((50*Nu/N)^param_xi-1)*param_beta/param_xi
+```
+```{r}
+unname(x20); unname(x50)
+```
