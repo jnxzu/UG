@@ -1,10 +1,120 @@
+library(ggplot2)
+library(copula)
+library(VineCopula)
+
+
+
+#Przyk³ad 1
+#=============
+#Generujemy   proby licznosci n=1000 z rozkladu N(0,1) 
+set.seed(15)
+x1=rnorm(1000)
+y1=rnorm(1000)
+
+#tworzymy nowe proby z rozkladu N(0,1), ale zalezne
+x2 <- 0.6*x1+0.8*y1
+y2 <-  0.8*x1+0.6*y1
+
+x3 <- 0.6*x1+0.8*y1
+y3 <- 0.28*x1-0.96*y1
+
+X <- data.frame(x1=x1,y1=y1,x2=x2,y2=y2,x3=x3,y3=y3)
+
+ggplot(X, aes(x=x1, y=y1))+ geom_point()
+ggplot(X, aes(x=x2, y=y2))+ geom_point()
+ggplot(X, aes(x=x3, y=y3))+ geom_point()
+
+#wspolczynniki korelacji
+cor(x1,y1); cor(x2,y2); cor(x3,y3)
+
+#Przyklad 2
+#==========
+#Generujemy probe licznosci 1000 z rozkladu normalnego dwuwymiarowego N(0,0,1,1,0.9)
+
+library(MASS)
+#wektor srednich 
+mu <- c(0,0)
+
+#macierz kowariancji 
+#gdy wariancje rowne sa 1,  macierz kowariancji = macierz korelacji 
+sigma <- matrix(c(1, 0.9, 
+                  0.9, 1), 
+                nrow=2)  
+
+#generujemy probe licznosci n
+n <- 1000
+
+set.seed(100)
+X <- MASS::mvrnorm(n,mu=mu,Sigma=sigma)
+
+#proby z rozkladow brzegowych (zauwaz, ze sa to rozklady N(0,1))
+X1 <- X[,1]
+X2 <- X[,2]
+hist(X1,prob=T); hist(X2,prob=T)
+
+#skladamy X1, X2 z dystrybuantami brzegowymi
+FX1 <- pnorm(X1)
+FX2 <- pnorm(X2)
+hist(FX1,prob=T); hist(FX2,prob=T)
+
+#Przyklad 2 cd.
+#===========
+#wykresy rozrzutu
+plot(X1,X2)
+plot(FX1,FX2)
+
+#Przyklad 3. Generowanie z kopuly gaussowskiej
+#===========
+library('copula')
+
+par=seq(-1,1,by=0.2)  #rho
+for(rho in par){
+  un <- rCopula(copula=normalCopula(rho), n=1000)
+  plot(un)
+  text(0.3,0, rho, col=2)
+}
+
+#Przyklad 4
+#===========
+#Generujemy proby z rozklau N(0,0,1,s2,0.9) licznosci n=1000
+#dla roznych wartoœci odchylenia standardowego s2.
+#Przeksztalcamy je poprzez dystrybuanty brzegowe.
+
+#wektor srednich 
+m1=0; m2=0
+mu <- c(m1,m2)
+
+#ochylenie st. jednej zmiennej brzegowej i wsp. korelacji
+s1=1; r=0.9
+
+#generujemy proby i przeksztalcamy
+for(s2 in seq(1,17,by=2)){
+  
+  #macierz kowariancji 
+  sigma <- matrix(c(s1^2, s1*s2*r, 
+                    s1*s2*r, s2^2), 
+                  nrow=2)  
+  
+  #proba z rozkladu dwuwymiarowego normalnego
+  X <- MASS::mvrnorm(n,mu=mu,Sigma=sigma)
+  
+  #proby z rozkladow brzegowych N(ui,si)
+  X1 <- X[,1];   X2 <- X[,2]
+  
+  #zlozenie z dystrybuantami brzegowymi - proby z rozkladow jednostajnych
+  FX1 <- pnorm(X1,m1,s1)
+  FX2 <- pnorm(X2,m2,s2)
+  
+  plot(FX1,FX2)
+}
+
 #Przyklad 5 (kopula gaussowska w zastosowaniu)
 #==========
 #Problem: Jakich ekstremalnych wartosci mozna sie spodziewac 
 #w  przypadku Z=2X1+3X2? (precyzyjnie dalej)
 
 #Na postawiony problem mamy odpowiedziec wykorzystujac dane.
-Dane <- read.csv2("~/Documents/0InstInformatyki/2021MZEwR/10Copula/dane.csv")
+Dane <- read.csv2("C:\\Users\\xsero\\Desktop\\Projekty\\UG\\R - Intro\\data\\kopuly.csv")
 head(Dane)
 
 X=Dane$X1
@@ -142,3 +252,4 @@ vb = Ub[,2]
 cop.a <- BiCopSelect(ua,va)
 cop.b <- BiCopSelect(ub,vb)
 cop.a; cop.b
+

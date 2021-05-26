@@ -43,6 +43,7 @@ application.properties
 *.csproj
 *.sln
 *.zip
+*.tgz
 *.rar
 *.cache
 *.jpeg
