@@ -16,7 +16,7 @@ hist(X,prob=T)
 hist(Y,prob=T)
 
 #Krok 1 
-Tworzymy pseudo-obserwacje.
+#Tworzymy pseudo-obserwacje.
 
 #a) podejscie parametryczne - "dopasowujemy najlepszy"  rozklad do danych brzegowych
 #np. po obejrzeniu histogramow decydujemy sie na rozklad wykladniczy i normalny 
